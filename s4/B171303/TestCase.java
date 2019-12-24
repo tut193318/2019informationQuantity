@@ -2,7 +2,7 @@ package s4.B171303; // Please modify to s4.Bnnnnnn, where nnnnnn is your student
 import java.lang.*;
 import s4.specification.*;
 
-/*
+
 interface FrequencerInterface {     // This interface provides the design for frequency counter.
     void setTarget(byte[]  target); // set the data to search.
     void setSpace(byte[]  space);  // set the data to be searched target from.
@@ -13,9 +13,8 @@ interface FrequencerInterface {     // This interface provides the design for fr
     // get the frequency of subByte of taget, i.e target[start], taget[start+1], ... , target[end-1].
     // For the incorrect value of START or END, the behavior is undefined.
 }
-*/
 
-/*
+
 package s4.specification;
 public interface InformationEstimatorInterface{
     void setTarget(byte target[]); // set the data for computing the information quantities
@@ -26,7 +25,7 @@ public interface InformationEstimatorInterface{
 // Note that this happens only when the space is unreasonably large. We will encounter other problem anyway.
 // Otherwise, estimation of information quantity, 
 }                        
-*/
+
 
 
 public class TestCase {
@@ -70,5 +69,5 @@ public class TestCase {
 	}
 
     }
-}	    
-	    
+}	 
+   	    

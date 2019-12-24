@@ -24,12 +24,14 @@ public class InformationEstimator implements InformationEstimatorInterface{
     byte [] subBytes(byte [] x, int start, int end) {
 	// corresponding to substring of String for  byte[] ,
 	// It is not implement in class library because internal structure of byte[] requires copy.
+      //byte列の切り抜き
 	byte [] result = new byte[end - start];
 	for(int i = 0; i<end - start; i++) { result[i] = x[start + i]; };
 	return result;
     }
 
     // IQ: information quantity for a count,  -log2(count/sizeof(space))
+    //情報量算出
     double iq(int freq) {
 	return  - Math.log10((double) freq / (double) mySpace.length)/ Math.log10((double) 2.0);
     }
@@ -41,6 +43,7 @@ public class InformationEstimator implements InformationEstimatorInterface{
     }
 
     public double estimation(){
+      if(myTarget.length==0||mySpace.length==0){return 0.0;}
 	boolean [] partition = new boolean[myTarget.length+1];
 	int np;
 	np = 1<<(myTarget.length-1);
@@ -53,14 +56,14 @@ public class InformationEstimator implements InformationEstimatorInterface{
 	    // a b c d e f g   : myTarget
 	    // T F T F F T F T : partition:
 	    partition[0] = true; // I know that this is not needed, but..
+      //partitionにpの2進数表示を入れる
 	    for(int i=0; i<myTarget.length -1;i++) {
 		partition[i+1] = (0 !=((1<<i) & p));
 	    }
 	    partition[myTarget.length] = true;
-
+//最初と最後はT
 	    // Compute Information Quantity for the partition, in "value1"
 	    // value1 = IQ(#"ab")+IQ(#"cde")+IQ(#"fg") for the above example
-            double value1 = (double) 0.0;
 	    int end = 0;;
 	    int start = end;
 	    while(start<myTarget.length) {
@@ -71,7 +74,11 @@ public class InformationEstimator implements InformationEstimatorInterface{
 		    end++;
 		}
 		// System.out.print("("+start+","+end+")");
+    //subBytesはbyte列の切り抜き
 		myFrequencer.setTarget(subBytes(myTarget, start, end));
+    //frequencyは出現回数の導出
+    //iqは情報量の導出
+    //→文字列全体の情報量（エントロピー？）の導出
 		value1 = value1 + iq(myFrequencer.frequency());
 		start = end;
 	    }

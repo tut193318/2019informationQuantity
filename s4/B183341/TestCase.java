@@ -36,11 +36,40 @@ public class TestCase {
 	    int freq;
 	    System.out.println("checking s4.B183341.Frequencer");
 	    myObject = new s4.B183341.Frequencer();
+            
+            //SPACEを設定しない場合
+            myObject.setTarget("H".getBytes());
+	    freq = myObject.frequency();
+	    System.out.print("SPACEを設定しない場合:");
+	    if(freq == 0) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+	    
+	    //SPACEの長さがゼロの場合
+	    myObject.setSpace("".getBytes());
+	    myObject.setTarget("H".getBytes());
+	    freq = myObject.frequency();
+	    System.out.print("SPACEの長さがゼロの場合:");
+	    if(freq == 0) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+	    
+	    //TARGETを設定しない場合
+	    myObject = new s4.B183341.Frequencer(); //上記のテストの際TARGETを設定しているため，newで初期化
 	    myObject.setSpace("Hi Ho Hi Ho".getBytes());
+	    freq = myObject.frequency();
+	    System.out.print("TARGETを設定しない場合:");
+	    if(freq == -1) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+	    
+	    //TARGETの長さがゼロの場合
+	    myObject.setSpace("Hi Ho Hi Ho".getBytes());
+	    myObject.setTarget("".getBytes());
+	    freq = myObject.frequency();
+	    System.out.print("TARGETの長さがゼロの場合:");
+	    if(freq == -1) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+	    
+	    //通常テストケース
+            myObject.setSpace("Hi Ho Hi Ho".getBytes());
 	    myObject.setTarget("H".getBytes());
 	    freq = myObject.frequency();
 	    System.out.print("\"H\" in \"Hi Ho Hi Ho\" appears "+freq+" times. ");
-	    if(4 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+	    if(freq == 4) { System.out.println("OK"); } else {System.out.println("WRONG"); }
 	}
 	catch(Exception e) {
 	    System.out.println("Exception occurred: STOP");
@@ -51,6 +80,34 @@ public class TestCase {
 	    double value;
 	    System.out.println("checking s4.B183341.InformationEstimator");
 	    myObject = new s4.B183341.InformationEstimator();
+	    //SPACEを設定しない場合
+            myObject.setTarget("0".getBytes());
+            value = myObject.estimation();
+            System.out.print("SPACEを設定しない場合:");
+            if(value == Double.MAX_VALUE) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+
+            //SPACEの長さがゼロの場合
+            myObject.setSpace("".getBytes());
+            myObject.setTarget("0".getBytes());
+            value = myObject.estimation();
+            System.out.print("SPACEの長さがゼロの場合:");
+            if(value == Double.MAX_VALUE) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+
+            //TARGETを設定しない場合
+            myObject = new s4.B183341.InformationEstimator(); //上記のテストの際TARGETを設定しているため，newで初期化
+            myObject.setSpace("3210321001230123".getBytes());
+            value = myObject.estimation();
+            System.out.print("TARGETを設定しない場合:");
+            if(value == 0.0) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+
+            //TARGETの長さがゼロの場合
+            myObject.setSpace("3210321001230123".getBytes());
+            myObject.setTarget("".getBytes());
+            value = myObject.estimation();
+            System.out.print("TARGETの長さがゼロの場合:");
+            if(value == 0.0) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+
+            //通常テストケース
 	    myObject.setSpace("3210321001230123".getBytes());
 	    myObject.setTarget("0".getBytes());
 	    value = myObject.estimation();

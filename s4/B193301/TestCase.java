@@ -36,10 +36,10 @@ public class TestCase {
 	    int freq;
 	    System.out.println("checking s4.B193301.Frequencer");
 	    myObject = new s4.B193301.Frequencer();
-	    myObject.setSpace("Hi Ho Hi Ho".getBytes());
-	    myObject.setTarget("H".getBytes());
+	    myObject.setSpace("A".getBytes());
+	    myObject.setTarget("AAAAAAA".getBytes());
 	    freq = myObject.frequency();
-	    System.out.print("\"H\" in \"Hi Ho Hi Ho\" appears "+freq+" times. ");
+	    System.out.print("\"H\" in \"Hi Ho Ho\" appears "+freq+" times. ");
 	    if(4 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
 	}
 	catch(Exception e) {
@@ -51,7 +51,7 @@ public class TestCase {
 	    double value;
 	    System.out.println("checking s4.B193301.InformationEstimator");
 	    myObject = new s4.B193301.InformationEstimator();
-	    myObject.setSpace("3210321001230123".getBytes());
+	    myObject.setSpace("0".getBytes());
 	    myObject.setTarget("0".getBytes());
 	    value = myObject.estimation();
 	    System.out.println(">0 "+value);

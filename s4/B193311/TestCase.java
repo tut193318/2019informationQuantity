@@ -41,6 +41,20 @@ public class TestCase {
 	    freq = myObject.frequency();
 	    System.out.print("\"H\" in \"Hi Ho Hi Ho\" appears "+freq+" times. ");
 	    if(4 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+        
+        //Tests that Ogaki Masashi added
+        myObject.setSpace("Hop Step Jumpppppp!!".getBytes());
+	    myObject.setTarget("p".getBytes());
+	    freq = myObject.frequency();
+	    System.out.print("\"p\" in \"Hop Step Jumpppppp!!\" appears "+freq+" times. ");
+	    if(8 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+
+        myObject.setSpace("prpr".getBytes());
+	    myObject.setTarget("prprprpr".getBytes());
+	    freq = myObject.frequency();
+	    System.out.print("\"prprprpr\" in \"prpr\" appears "+freq+" times. ");
+	    if(8 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+
 	}
 	catch(Exception e) {
 	    System.out.println("Exception occurred: STOP");
@@ -64,6 +78,19 @@ public class TestCase {
 	    myObject.setTarget("00".getBytes());
 	    value = myObject.estimation();
 	    System.out.println(">00 "+value);
+
+        //Tests that Ogaki Masashi added.
+        System.out.println("I check '000000000001'");
+        myObject.setSpace("000000000001".getBytes());
+        myObject.setTarget("0".getBytes());
+        value = myObject.estimation();
+        System.out.println(">0 "+value);
+        myObject.setSpace("000000000001".getBytes());
+        myObject.setTarget("1".getBytes());
+        value = myObject.estimation();
+        System.out.println(">1 "+value);
+
+
 	}
 	catch(Exception e) {
 	    System.out.println("Exception occurred: STOP");

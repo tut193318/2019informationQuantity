@@ -1,0 +1,96 @@
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	modified:   s4/B161822/Hello.java
+	modified:   s4/B171302/Hello.java
+	modified:   s4/B171302/TestCase.java
+	modified:   s4/B171303/Hello.java
+	modified:   s4/B171303/TestCase.java
+	modified:   s4/B171304/Hello.java
+	modified:   s4/B171809/Hello.java
+	modified:   s4/B171809/TestCase.java
+	modified:   s4/B171811/Frequencer.java
+	modified:   s4/B171811/Hello.java
+	modified:   s4/B171811/InformationEstimator.java
+	modified:   s4/B171811/TestCase.java
+	deleted:    s4/B171836/Frequencer.java
+	deleted:    s4/B171836/Hello.java
+	deleted:    s4/B171836/InformationEstimator.java
+	deleted:    s4/B171836/TestCase.java
+	modified:   s4/B171848/Hello.java
+	modified:   s4/B171848/TestCase.java
+	deleted:    s4/B171851/Hello.java
+	deleted:    s4/B171851/InformationEstimator.java
+	deleted:    s4/B171851/TestCase.java
+	modified:   s4/B183341/Frequencer.java
+	modified:   s4/B183341/Hello.java
+	modified:   s4/B183341/InformationEstimator.java
+	modified:   s4/B183341/TestCase.java
+	modified:   s4/B193301/Hello.java
+	modified:   s4/B193301/TestCase.java
+	modified:   s4/B193302/Hello.java
+	modified:   s4/B193303/Hello.java
+	modified:   s4/B193304/Hello.java
+	modified:   s4/B193306/Hello.java
+	renamed:    s4/B171851/Frequencer.java -> s4/B193310/Frequencer.java
+	modified:   s4/B193310/Hello.java
+	modified:   s4/B193310/InformationEstimator.java
+	modified:   s4/B193310/TestCase.java
+	modified:   s4/B193311/Hello.java
+	modified:   s4/B193311/TestCase.java
+	modified:   s4/B193312/Hello.java
+	modified:   s4/B193312/TestCase.java
+	modified:   s4/B193313/Hello.java
+	modified:   s4/B193315/Hello.java
+	modified:   s4/B193315/TestCase.java
+	modified:   s4/B193317/Hello.java
+	modified:   s4/B193317/TestCase.java
+	modified:   s4/B193318/Hello.java
+	modified:   s4/B193319/Hello.java
+	modified:   s4/B193319/TestCase.java
+	modified:   s4/B193324/Hello.java
+	modified:   s4/B193325/Hello.java
+	modified:   s4/B193329/Hello.java
+	modified:   s4/B193333/Hello.java
+	modified:   s4/B193335/Hello.java
+	modified:   s4/B193335/TestCase.java
+	modified:   s4/B193337/Hello.java
+	modified:   s4/B193340/Hello.java
+	modified:   s4/B193346/Hello.java
+	modified:   s4/B193349/Frequencer.java
+	modified:   s4/B193349/Hello.java
+	modified:   s4/B193349/InformationEstimator.java
+	modified:   s4/B193349/TestCase.java
+	modified:   s4/B193354/Hello.java
+	modified:   s4/B193355/Hello.java
+	modified:   s4/B193360/Hello.java
+	modified:   s4/B193362/Hello.java
+	modified:   s4/B193362/TestCase.java
+	modified:   s4/B193363/Hello.java
+	modified:   s4/B193363/TestCase.java
+	modified:   s4/B193365/Hello.java
+	modified:   s4/B193367/Hello.java
+	modified:   s4/B193368/Hello.java
+	modified:   s4/B193369/Frequencer.java
+	modified:   s4/B193369/Hello.java
+	modified:   s4/B193369/InformationEstimator.java
+	modified:   s4/B193369/TestCase.java
+	modified:   s4/B193372/Hello.java
+	modified:   s4/B193373/Hello.java
+	modified:   s4/B193374/Frequencer.java
+	modified:   s4/B193374/Hello.java
+	modified:   s4/B193374/InformationEstimator.java
+	modified:   s4/B193374/TestCase.java
+	modified:   s4/B193376/Frequencer.java
+	modified:   s4/B193376/Hello.java
+	modified:   s4/B193376/InformationEstimator.java
+	modified:   s4/B193381/Hello.java
+	modified:   s4/B193381/TestCase.java
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	git-status-2019-1222.txt
+

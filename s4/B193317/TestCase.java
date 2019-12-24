@@ -15,6 +15,7 @@ interface FrequencerInterface {     // This interface provides the design for fr
 }
 */
 
+
 /*
 package s4.specification;
 public interface InformationEstimatorInterface{
@@ -36,10 +37,11 @@ public class TestCase {
 	    int freq;
 	    System.out.println("checking s4.B193317.Frequencer");
 	    myObject = new s4.B193317.Frequencer();
-	    myObject.setSpace("Hi Ho Hi Ho".getBytes());
-	    myObject.setTarget("H".getBytes());
+	  //課題による追記：Target.length>Space.lengthの場合
+	    myObject.setSpace("A".getBytes());
+	    myObject.setTarget("ABC".getBytes());
 	    freq = myObject.frequency();
-	    System.out.print("\"H\" in \"Hi Ho Hi Ho\" appears "+freq+" times. ");
+	    System.out.print("\"ABC\" in \"A\" appears "+freq+" times. ");
 	    if(4 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
 	}
 	catch(Exception e) {
@@ -51,7 +53,7 @@ public class TestCase {
 	    double value;
 	    System.out.println("checking s4.B193317.InformationEstimator");
 	    myObject = new s4.B193317.InformationEstimator();
-	    myObject.setSpace("3210321001230123".getBytes());
+	    myObject.setSpace("3210".getBytes());
 	    myObject.setTarget("0".getBytes());
 	    value = myObject.estimation();
 	    System.out.println(">0 "+value);
@@ -64,6 +66,10 @@ public class TestCase {
 	    myObject.setTarget("00".getBytes());
 	    value = myObject.estimation();
 	    System.out.println(">00 "+value);
+	    //課題による追記：Target.length>Space.lengthの場合
+	    myObject.setTarget("01234".getBytes());
+	    value = myObject.estimation();
+	    System.out.println(">01234 "+value);
 	}
 	catch(Exception e) {
 	    System.out.println("Exception occurred: STOP");

@@ -1,0 +1,91 @@
+---------- sample
+---------- B161822
+hello..git
+---------- B183341
+hello!
+---------- B171302
+hello!!
+---------- B171303
+Hello!!
+---------- B171304
+hello..(y)
+---------- B171809
+\hello/
+---------- B171811
+Hello!!
+---------- B171836
+---------- B171848
+hello everyone
+---------- B171851
+---------- B193301
+hello..GitHub
+---------- B193302
+StarHorse4..(buggy)
+---------- B193303
+konnnichiha
+---------- B193304
+hello
+---------- B193306
+hello
+---------- B193310
+Hello.Thank you
+---------- B193311
+I'm Ogaki Masashi.
+ My student ID is 193311.
+---------- B193312
+Hello World!! in December 17th.
+---------- B193313
+HELLO B193313
+---------- B193315
+hello..(buggy)<tut193315>
+---------- B193317
+hello,GitHubWorld
+---------- B193318
+hello is greeting(buggy)
+---------- B193319
+Hello World
+---------- B193324
+hello world!
+---------- B193325
+Hellow world
+---------- B193329
+hello..(B193329)
+---------- B193333
+hello..I'm Suenaga!
+---------- B193335
+NullPointerException
+---------- B193337
+tora
+---------- B193340
+Hello World
+---------- B193346
+Hello,Mmy author is Kenji Nakazono in 12/17.
+---------- B193349
+hello...........................
+---------- B193354
+hello..
+---------- B193355
+hello!
+---------- B193360
+Hello World!!
+---------- B193362
+Hello! I'm m47ch4n
+---------- B193363
+hello world!!
+---------- B193365
+Hello World !!
+---------- B193367
+hello..Morimotoyuta
+---------- B193368
+hello
+---------- B193369
+hello..B193369
+---------- B193372
+hello..(Ritsuki Yamanaka)
+---------- B193373
+---------- B193374
+hello..(:poop:)
+---------- B193376
+hello world
+---------- B193381
+from ... THAI TEPY)
