@@ -35,12 +35,70 @@ public class TestCase {
 	    FrequencerInterface  myObject;
 	    int freq;
 	    System.out.println("checking s4.B193318.Frequencer");
+
+	    /* Target and Space are not set */
+	    myObject = new s4.B193318.Frequencer();
+	    freq = myObject.frequency();
+	    System.out.print("Case:When target and space are not set. 仕様:-1 実際:"+freq+" ->");
+	    if(-1 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+
+	    /* Target is not set */
+	    myObject = new s4.B193318.Frequencer();
+	    myObject.setSpace("Hi Ho Hi Ho".getBytes());
+	    freq = myObject.frequency();
+	    System.out.print("Case:When target is not set. 仕様:-1 実際:"+freq+" ->");
+	    if(-1 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+
+	    /* Space is not set */
+	    myObject = new s4.B193318.Frequencer();
+	    myObject.setTarget("A".getBytes());
+	    freq = myObject.frequency();
+	    System.out.print("Case:When Space is not set. 仕様:-1 実際:"+freq+" ->");
+	    if(0 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+
+	    /* Target'length is zero */
+	    myObject = new s4.B193318.Frequencer();
+	    myObject.setSpace("".getBytes());
+	    myObject.setTarget("".getBytes());
+	    freq = myObject.frequency();
+	    System.out.print("Case:When target's length and space's length is zero. 仕様:-1 実際:"+freq+" ->");
+	    if(-1 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+
+	    /* Target'length is zero */
+	    myObject = new s4.B193318.Frequencer();
+	    myObject.setSpace("Hi Ho Hi Ho".getBytes());
+	    myObject.setTarget("".getBytes());
+	    freq = myObject.frequency();
+	    System.out.print("Case:When target's length is zero. 仕様:-1 実際:"+freq+" ->");
+	    if(-1 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+
+	    /* Space'length is zero */
+	    myObject = new s4.B193318.Frequencer();
+	    myObject.setSpace("".getBytes());
+	    myObject.setTarget("A".getBytes());
+	    freq = myObject.frequency();
+	    System.out.print("Case:When space's length is zero. 仕様:0 実際:"+freq+" ->");
+	    if(0 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+
+	    /* 4Targets in Space */
 	    myObject = new s4.B193318.Frequencer();
 	    myObject.setSpace("Hi Ho Hi Ho".getBytes());
 	    myObject.setTarget("H".getBytes());
 	    freq = myObject.frequency();
 	    System.out.print("\"H\" in \"Hi Ho Hi Ho\" appears "+freq+" times. ");
 	    if(4 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+
+	    /* 5Tagets in Space */
+	    myObject = new s4.B193318.Frequencer();
+	    myObject.setSpace("Bike Big Ball Best Baloon".getBytes());
+	    myObject.setTarget("B".getBytes());
+	    freq = myObject.frequency();
+	    System.out.print("\"B\" in \"Bike Big Ball Best Baloon\" appears "+freq+" times. ");
+	    if(5 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+	    
+
+
+	    
 	}
 	catch(Exception e) {
 	    System.out.println("Exception occurred: STOP");
