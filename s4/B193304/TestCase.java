@@ -8,14 +8,14 @@ interface FrequencerInterface {     // This interface provides the design for fr
     void setSpace(byte[]  space);  // set the data to be searched target from.
     int frequency(); //It return -1, when TARGET is not set or TARGET's length is zero
                     //Otherwise, it return 0, when SPACE is not set or Space's length is zero
-                    //Otherwise, get the frequency of TAGET in SPACE
+                    //Otherwise, get the frequency of TARGET in SPACE
     int subByteFrequency(int start, int end);
     // get the frequency of subByte of taget, i.e target[start], taget[start+1], ... , target[end-1].
     // For the incorrect value of START or END, the behavior is undefined.
 }
-*/
 
-/*
+
+
 package s4.specification;
 public interface InformationEstimatorInterface{
     void setTarget(byte target[]); // set the data for computing the information quantities
@@ -40,6 +40,12 @@ public class TestCase {
 	    myObject.setTarget("H".getBytes());
 	    freq = myObject.frequency();
 	    System.out.print("\"H\" in \"Hi Ho Hi Ho\" appears "+freq+" times. ");
+	    if(4 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+
+	    myObject.setSpace("Ag Au At Ap".getBytes());
+	    myObject.setTarget("A".getBytes());
+	    freq = myObject.frequency();
+	    System.out.print("\"A\" in \"Ag Au At Ap\" appears "+freq+" times. ");
 	    if(4 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
 	}
 	catch(Exception e) {

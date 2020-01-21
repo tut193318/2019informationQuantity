@@ -42,23 +42,97 @@ public class TestCase {
 	    System.out.print("\"H\" in \"Hi Ho Hi Ho\" appears "+freq+" times. ");
 	    if(4 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
         
-        //Tests that Ogaki Masashi added
-        myObject.setSpace("Hop Step Jumpppppp!!".getBytes());
-	    myObject.setTarget("p".getBytes());
-	    freq = myObject.frequency();
+        //Tests that Ogaki Masashi added. I tested on frequencer.
+        //Length of TARGET is zero.
+        FrequencerInterface myObject4 = new s4.B193311.Frequencer();
+        myObject4.setSpace("I my me mine".getBytes());
+        myObject4.setTarget("".getBytes());
+        freq = myObject4.frequency();
+        System.out.print("Length of TARGET is zero. ");
+        if(-1 == freq) { System.out.println("OK"); } else { System.out.println("WRONG"); }
+        
+        //Length of SPACE is zero.
+        FrequencerInterface myObject5 = new s4.B193311.Frequencer();
+        myObject5.setTarget("I my me mine".getBytes());
+        myObject5.setSpace("".getBytes());
+        freq = myObject5.frequency();
+        System.out.print("Length of SPACE is zero. ");
+        if(-1 == freq) { System.out.println("OK"); } else { System.out.println("WRONG"); }
+
+        //Correct condition
+        myObject5.setSpace("Hop Step Jumpppppp!!".getBytes());
+	    myObject5.setTarget("p".getBytes());
+	    freq = myObject5.frequency();
 	    System.out.print("\"p\" in \"Hop Step Jumpppppp!!\" appears "+freq+" times. ");
 	    if(8 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
-
+       
+        /*
         myObject.setSpace("prpr".getBytes());
 	    myObject.setTarget("prprprpr".getBytes());
 	    freq = myObject.frequency();
 	    System.out.print("\"prprprpr\" in \"prpr\" appears "+freq+" times. ");
-	    if(8 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+	    if(0 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+        */
+        
+        /*
+        freq = myObject.subByteFrequency(0, 1);
+        System.out.print("\"p\" in \"prpr\" appears"+freq+" times. ");
+        if(0 == freq) { System.out.println("OK");} else {System.out.println("WRONG"); }
+        */
 
 	}
 	catch(Exception e) {
 	    System.out.println("Exception occurred: STOP");
 	}
+
+    try {
+        //SPACE and TARGET is not setted.
+        FrequencerInterface myObject1 = new s4.B193311.Frequencer();
+        int freq = myObject1.frequency();
+        System.out.print("SPACE and TARGET is not setted. ");
+        if(-1 == freq) { System.out.println("OK"); } else { System.out.println("WRONG"); }
+
+    } catch(Exception e) {
+       System.out.println("Exception occurred: STOP");
+    }
+
+    try {
+        //TARGET is not setted.
+        FrequencerInterface myObject2 = new s4.B193311.Frequencer();
+        myObject2.setSpace("I my me mine".getBytes());
+        int freq = myObject2.frequency();
+        System.out.print("TARGET is not setted. ");
+        if(-1 == freq) { System.out.println("OK"); } else { System.out.println("WRONG"); }
+
+    } catch(Exception e) {
+       System.out.println("Exception occurred: STOP");
+    }
+
+    try {
+        //SPACE is not setted.
+        FrequencerInterface myObject3 = new s4.B193311.Frequencer();
+        myObject3.setTarget("m".getBytes());
+        int freq = myObject3.frequency();
+        System.out.print("SPACE is not setted. ");
+        if(-1 == freq) { System.out.println("OK"); } else { System.out.println("WRONG"); }
+
+    } catch(Exception e) {
+       System.out.println("Exception occurred: STOP");
+    }
+
+    //I added test programs for Frequency.subBytesFrequency()
+    try {
+        //Correct condition
+        FrequencerInterface frqObj = new s4.B193311.Frequencer();
+        frqObj.setSpace("ppap".getBytes());
+        frqObj.setTarget("pp".getBytes());
+        int frq = frqObj.subByteFrequency(0, 2);
+        System.out.print("\"pp\" in \"ppap\" appears "+frq+"times!. ");
+        if(1 == frq){ System.out.println("OK"); } else { System.out.println("WRONG"); }
+    }catch(Exception e){
+        System.out.println("Exception occured: STOP");
+    }
+
 
 	try {
 	    InformationEstimatorInterface myObject;

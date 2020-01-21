@@ -31,6 +31,21 @@ public interface InformationEstimatorInterface{
 
 public class TestCase {
     public static void main(String[] args) {
+	try { /* black box test */
+	    FrequencerInterface  myObject;
+	    int freq;
+	    System.out.println("checking s4.B193303.Frequencer");
+	    myObject = new s4.B193303.Frequencer();
+	    myObject.setSpace("Hi Ho Hi Ho".getBytes());
+	    myObject.setTarget("".getBytes());
+	    freq = myObject.frequency();
+	    System.out.print("\"H\" in \"Hi Ho Hi Ho\" appears "+freq+" times. ");
+	    if(-1 == freq) { System.out.println("OK"); } else {System.out.println("WRONG:It doesn't return -1 when TARGET's length is zero"); }
+	}
+	catch(Exception e) {
+	    System.out.println("Exception occurred: STOP");
+	}
+
 	try {
 	    FrequencerInterface  myObject;
 	    int freq;
@@ -42,9 +57,42 @@ public class TestCase {
 	    System.out.print("\"H\" in \"Hi Ho Hi Ho\" appears "+freq+" times. ");
 	    if(4 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
 	}
+
 	catch(Exception e) {
 	    System.out.println("Exception occurred: STOP");
 	}
+
+	try {
+	    FrequencerInterface  myObject;
+	    int freq;
+	    System.out.println("checking s4.B193303.Frequencer");
+	    myObject = new s4.B193303.Frequencer();
+	    myObject.setSpace("".getBytes());
+	    myObject.setTarget("H".getBytes());
+	    freq = myObject.frequency();
+	    System.out.print("\"H\" in \"Hi Ho Hi Ho\" appears "+freq+" times. ");
+	    if(0 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+	}
+	catch(Exception e) {
+	    System.out.println("Exception occurred: STOP");
+	}
+
+	try { /* white box test */
+	    FrequencerInterface  myObject;
+	    int freq;
+	    System.out.println("checking s4.B193303.Frequencer");
+	    myObject = new s4.B193303.Frequencer();
+	    myObject.setSpace("AAAA".getBytes());
+	    myObject.setTarget("AA".getBytes());
+	    freq = myObject.frequency();
+	    System.out.print("\"H\" in \"Hi Ho Hi Ho\" appears "+freq+" times. ");
+	    if(4 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+	}
+
+	catch(Exception e) {
+	    System.out.println("Exception occurred: STOP");
+	}
+
 
 	try {
 	    InformationEstimatorInterface myObject;

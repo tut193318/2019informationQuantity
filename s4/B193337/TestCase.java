@@ -40,12 +40,90 @@ public class TestCase {
 	    myObject.setTarget("H".getBytes());
 	    freq = myObject.frequency();
 	    System.out.print("\"H\" in \"Hi Ho Hi Ho\" appears "+freq+" times. ");
-	    if(4 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+		if(4 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
 	}
 	catch(Exception e) {
 	    System.out.println("Exception occurred: STOP");
 	}
 
+	// TARGETが設定されていない場合の frequency()
+	try {
+	    FrequencerInterface  myObject;
+	    int freq;
+	    System.out.println("checking s4.B193337.Frequencer without setTarget");
+	    myObject = new s4.B193337.Frequencer();
+	    myObject.setSpace("Hi Ho Hi Ho".getBytes());
+	    freq = myObject.frequency();
+		System.out.print("frequency() = " + freq + ". ");
+		if(-1 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+	}
+	catch(Exception e) {
+	    System.out.println("Exception occurred: STOP");
+	}
+
+	// TARGETの長さがゼロの場合の frequency()
+	try {
+	    FrequencerInterface  myObject;
+	    int freq;
+	    System.out.println("checking s4.B193337.Frequencer");
+	    myObject = new s4.B193337.Frequencer();
+	    myObject.setSpace("Hi Ho Hi Ho".getBytes());
+	    myObject.setTarget("".getBytes());
+	    freq = myObject.frequency();
+		System.out.print("frequency() = " + freq + ". ");
+		if(-1 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+	}
+	catch(Exception e) {
+	    System.out.println("Exception occurred: STOP");
+	}
+
+	// SPACEが設定されていない場合の frequency()
+	try {
+	    FrequencerInterface  myObject;
+	    int freq;
+	    System.out.println("checking s4.B193337.Frequencer without setSpace");
+	    myObject = new s4.B193337.Frequencer();
+	    myObject.setTarget("H".getBytes());
+	    freq = myObject.frequency();
+		System.out.print("frequency() = " + freq + ". ");
+		if(0 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+	}
+	catch(Exception e) {
+	    System.out.println("Exception occurred: STOP");
+	}
+
+	// SPACEの長さがゼロの場合の frequency()
+	try {
+	    FrequencerInterface  myObject;
+	    int freq;
+	    System.out.println("checking s4.B193337.Frequencer");
+	    myObject = new s4.B193337.Frequencer();
+	    myObject.setSpace("".getBytes());
+	    myObject.setTarget("H".getBytes());
+	    freq = myObject.frequency();
+		System.out.print("frequency() = " + freq + ". ");
+		if(0 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+	}
+	catch(Exception e) {
+	    System.out.println("Exception occurred: STOP");
+	}
+
+	try {
+	    FrequencerInterface  myObject;
+	    int freq;
+	    System.out.println("checking s4.B193337.Frequencer (white box)");
+	    myObject = new s4.B193337.Frequencer();
+	    myObject.setSpace("AAA".getBytes());
+	    myObject.setTarget("AA".getBytes());
+	    freq = myObject.frequency();
+	    System.out.print("\"H\" in \"Hi Ho Hi Ho\" appears "+freq+" times. ");
+		if(4 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+	}
+	catch(Exception e) {
+	    System.out.println("Exception occurred: STOP");
+	}
+
+	/*
 	try {
 	    InformationEstimatorInterface myObject;
 	    double value;
@@ -68,6 +146,7 @@ public class TestCase {
 	catch(Exception e) {
 	    System.out.println("Exception occurred: STOP");
 	}
+	*/
 
     }
 }	    

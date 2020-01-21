@@ -31,21 +31,72 @@ public interface InformationEstimatorInterface{
 
 public class TestCase {
     public static void main(String[] args) {
+	
+	FrequencerInterface  myObject,testA,testB,testC,testD,testE;
+	int freq;
+	System.out.println("checking s4.B193301.Frequencer");
+	//myObject = new s4.B193301.Frequencer();
+	//myObject.setSpace("A".getBytes());
+	//myObject.setTarget("AAAAAAA".getBytes());
+	//freq = myObject.frequency();
 	try {
-	    FrequencerInterface  myObject;
-	    int freq;
-	    System.out.println("checking s4.B193301.Frequencer");
-	    myObject = new s4.B193301.Frequencer();
-	    myObject.setSpace("A".getBytes());
-	    myObject.setTarget("AAAAAAA".getBytes());
-	    freq = myObject.frequency();
-	    System.out.print("\"H\" in \"Hi Ho Ho\" appears "+freq+" times. ");
-	    if(4 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+	    //TARGET ga set sarete inai baai
+	    testA=new s4.B193301.Frequencer();
+	    testA.setSpace("A".getBytes());
+	    //testA.setTarget("".getBytes());
+	    freq=testA.frequency();
+	    System.out.println("testA TARGET is not set :"+freq);
+	} catch(Exception e) {
+	    System.out.println("Exception occurred: STOP");
 	}
-	catch(Exception e) {
+	
+	try{
+	    //TARGET no nagasa ga 0 no baai
+	    testB=new s4.B193301.Frequencer();
+	    testB.setSpace("A".getBytes());
+	    testB.setTarget(null);
+	    freq=testB.frequency();
+	    System.out.println("testB TARGET's length is zero:"+freq);
+	} catch(Exception e) {
 	    System.out.println("Exception occurred: STOP");
 	}
 
+	try{
+	    //SPACE ga set sarete inai baai
+	    testC=new s4.B193301.Frequencer();
+	    //testC.setSpace("".getBytes());
+	    testC.setTarget("A".getBytes());
+	    freq=testC.frequency();
+	    System.out.println("testC SPACE is not set:"+freq);
+	} catch(Exception e) {
+	    System.out.println("Exception occurred: STOP");
+	}
+
+	
+	    //if(4 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+
+	try{
+	    //SPACE no nagasa ga 0
+	    testD=new s4.B193301.Frequencer();
+	    testD.setSpace(null);
+	    testD.setTarget("A".getBytes());
+	    freq=testD.frequency();
+	    System.out.println("testD SPACE's length is zero:"+freq);
+	} catch(Exception e) {
+	    System.out.println("Exception occurred: STOP");
+	}
+
+	try{
+	    //test case
+	    testE=new s4.B193301.Frequencer();
+	    testE.setSpace("AAAAAA".getBytes());
+	    testE.setTarget("AA".getBytes());
+	    freq=testE.frequency();
+	    System.out.println("testE :"+freq);
+	} catch(Exception e) {
+	    System.out.println("Exception occurred: STOP");
+	}
+	/*
 	try {
 	    InformationEstimatorInterface myObject;
 	    double value;
@@ -68,7 +119,8 @@ public class TestCase {
 	catch(Exception e) {
 	    System.out.println("Exception occurred: STOP");
 	}
-
+	*/
     }
 }	    
+	    
 	    

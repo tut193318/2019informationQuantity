@@ -1,0 +1,142 @@
+umemura
+Author: TUT3Software4Project <tut.umemura.lab@gmail.com>
+Date:   Sat Dec 14 14:23:56 2019 +0900
+B161822
+Author: kedu-2018 <k161822@edu.tut.ac.jp>
+Date:   Tue Dec 24 17:41:20 2019 +0900
+B183341
+Author: Atsushi Shirafuji <shirafuji.atsushi.cb@tut.jp>
+Date:   Tue Dec 24 17:31:37 2019 +0900
+B171302
+Author: tut171302 <r171302@edu.tut.ac.jp>
+Date:   Tue Dec 24 16:47:15 2019 +0900
+B171303
+Author: tut171303 <t171303@edu.tut.ac.jp>
+Date:   Tue Dec 24 17:47:17 2019 +0900
+B171304
+Author: tut171304 <crafidia@outlook.jp>
+Date:   Mon Dec 30 13:01:10 2019 +0900
+B171809
+Author: Ozaki Nayuta <ozaki.nayuta.sp@tut.jp>
+Date:   Tue Dec 24 16:29:48 2019 +0900
+B171811
+Author: tut171811 <y171811@edu.tut.ac.jp>
+Date:   Sat Dec 28 18:29:15 2019 +0900
+B171836
+Author: Tsuji Satoshi <tsuji.satoshi.se@tut.jp>
+Date:   Tue Dec 24 15:54:44 2019 +0900
+B171848
+Author: Nozaki Kei <kei74baske@gmail.com>
+Date:   Mon Dec 30 05:21:30 2019 +0900
+B171851
+B193301
+Author: Aoyama Kashiko <aoyama.kashiko.nu@tut.jp>
+Date:   Tue Dec 24 19:24:21 2019 +0900
+B193302
+Author: Araki Yuto <y193302@edu.tut.ac.jp>
+Date:   Tue Dec 24 17:08:59 2019 +0900
+B193303
+Author: Takahiro Ishii <ishii.takahiro.xh@tut.jp>
+Date:   Tue Dec 24 18:22:16 2019 +0900
+B193304
+Author: tut193303 <ishida.yoshihito.sh@tut.jp>
+Date:   Tue Dec 24 17:13:36 2019 +0900
+B193306
+Author: Kyohei Imai <k193306@edu.tut.ac.jp>
+Date:   Tue Dec 24 17:09:22 2019 +0900
+B193310
+Author: tut193310 <uno.mamoru.vf@tut.jp>
+Date:   Tue Dec 24 17:14:30 2019 +0900
+B193311
+Author: Ogaki Masashi <academic.ogakimasashi@gmail.com>
+Date:   Tue Dec 24 17:38:23 2019 +0900
+B193312
+Author: tut193312 <osawa.takeru.qf@tut.jp>
+Date:   Tue Dec 24 17:46:58 2019 +0900
+B193313
+Author: tut193313 <otsubo.naoki.no@tut.jp>
+Date:   Tue Dec 24 19:28:12 2019 +0900
+B193315
+Author: tut193315 <ochiai.kota.yx@tut.jp>
+Date:   Tue Dec 24 17:14:48 2019 +0900
+B193317
+Author: AmaneKaku <kaku.amane.fz@tut.jp>
+Date:   Tue Dec 24 18:17:11 2019 +0900
+B193318
+Author: Satoshi Katayama <katayama.satoshi.tb@tut.jp>
+Date:   Tue Dec 24 17:08:37 2019 +0900
+B193319
+Author: kadoshita <sublimer.me@gmail.com>
+Date:   Tue Dec 24 16:45:58 2019 +0900
+B193324
+Author: Koketsu Shintaro <koketsu.shintaro.lx@tut.jp>
+Date:   Tue Dec 24 17:55:15 2019 +0900
+B193325
+Author: Kobayashi Yugo <y193325@im127.mac.network>
+Date:   Tue Dec 24 18:34:59 2019 +0900
+B193329
+Author: tut193329 <sawamoto.kazumitsu.nz@tut.jp>
+Date:   Tue Dec 24 17:32:02 2019 +0900
+B193333
+Author: SuenagaEita <suenaga.eita.uw@tut.jp>
+Date:   Tue Dec 24 17:10:53 2019 +0900
+B193335
+Author: fclef <euphonium978@gmail.com>
+Date:   Tue Dec 24 16:25:17 2019 +0900
+B193337
+Author: Toranosuke Daito <daito.toranosuke.tm@tut.jp>
+Date:   Tue Dec 24 18:08:17 2019 +0900
+B193340
+Author: Leo Takahashi <takahashi.reo.bt@tut.jp>
+Date:   Tue Dec 24 17:06:43 2019 +0900
+B193346
+Author: tut193346 <nakazono.kenji.kz@tut.jp>
+Date:   Tue Dec 24 17:32:48 2019 +0900
+B193349
+Author: NamikawaRyotaro <n.ryo0328@gmail.com>
+Date:   Tue Dec 24 14:59:30 2019 +0900
+B193354
+Author: Higashimoto Shoma <higashimoto.shoma.bb@tut.jp>
+Date:   Tue Dec 24 17:47:59 2019 +0900
+B193355
+Author: Hidaki Ryo <hidaki.ryo.aa@tut.jp>
+Date:   Fri Jan 3 00:17:03 2020 +0900
+B193360
+Author: Honjo Nen <n193360@im129.mac.network>
+Date:   Tue Dec 24 17:42:11 2019 +0900
+B193362
+Author: M47CH4N <m47ch4n@gmail.com>
+Date:   Tue Dec 24 18:01:57 2019 +0900
+B193363
+Author: Maruoka Yutaro <maruoka.yutaro.el@tut.jp>
+Date:   Tue Dec 24 17:47:04 2019 +0900
+B193365
+Author: Kota Minami <minami.kota.nt@tut.ac.jp>
+Date:   Tue Dec 24 18:17:33 2019 +0900
+B193367
+Author: Yuta Morimoto <morimoto.yuta.qx@tut.jp>
+Date:   Tue Dec 24 17:35:51 2019 +0900
+B193368
+Author: Shingo Yashiki <s193368@edu.tut.ac.jp>
+Date:   Tue Dec 24 17:13:39 2019 +0900
+B193369
+Author: Takuma Yasumori <foo@example.com>
+Date:   Tue Dec 24 17:48:24 2019 +0900
+B193372
+Author: tutr193372 <yamanaka.ritsuki.hc@tut.jp>
+Date:   Tue Dec 24 17:43:52 2019 +0900
+B193373
+Author: Hiroki Yamabayashi <yamabayashi.hiroki.zp@tut.jp>
+Date:   Tue Dec 24 17:53:05 2019 +0900
+B193374
+Author: KokiYamamoto <y.koki1023@gmail.com>
+Date:   Tue Dec 24 17:31:39 2019 +0900
+B193376
+Author: tubasasakunn <wakaikitubasa@gmail.com>
+Date:   Tue Dec 24 17:26:57 2019 +0900
+B193381
+Author: tepythai <thaitepy@gmail.com>
+Date:   Tue Dec 24 17:55:38 2019 +0900
+T000003
+Author: elnikkis <noahluces@gmail.com>
+Date:   Tue Dec 24 16:25:44 2019 +0900

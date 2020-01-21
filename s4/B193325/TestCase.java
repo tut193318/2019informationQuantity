@@ -40,7 +40,67 @@ public class TestCase {
 	    myObject.setTarget("H".getBytes());
 	    freq = myObject.frequency();
 	    System.out.print("\"H\" in \"Hi Ho Hi Ho\" appears "+freq+" times. ");
-	    if(4 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+		if(4 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+	}
+	catch(Exception e) {
+	    System.out.println("Exception occurred: STOP");
+	}
+
+	try {//TARGETを入力しない
+	    FrequencerInterface  myObject;
+	    int freq;
+	    System.out.println("checking s4.B193325.Frequencer about no TARGET");
+	    myObject = new s4.B193325.Frequencer();
+	    myObject.setSpace("Hi Ho Hi Ho".getBytes());
+	    myObject.setTarget("".getBytes());
+	    freq = myObject.frequency();
+	    System.out.print("\"\" in \"Hi Ho Hi Ho\" appears "+freq+" times. ");
+		if(-1 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+	}
+	catch(Exception e) {
+	    System.out.println("Exception occurred: STOP");
+	}
+
+	try {//SPACEを入力しない
+	    FrequencerInterface  myObject;
+	    int freq;
+	    System.out.println("checking s4.B193325.Frequencer about no SPACE");
+	    myObject = new s4.B193325.Frequencer();
+	    myObject.setSpace("".getBytes());
+	    myObject.setTarget("H".getBytes());
+	    freq = myObject.frequency();
+	    System.out.print("\"H\" in \"\" appears "+freq+" times. ");
+		if(0 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+	}
+	catch(Exception e) {
+	    System.out.println("Exception occurred: STOP");
+	}
+
+	try {//TRAGETにSPACEがない
+	    FrequencerInterface  myObject;
+	    int freq;
+	    System.out.println("checking s4.B193325.Frequencer about frequence = 0");
+	    myObject = new s4.B193325.Frequencer();
+	    myObject.setSpace("Hi Ho Hi Ho".getBytes());
+	    myObject.setTarget("A".getBytes());
+	    freq = myObject.frequency();
+	    System.out.print("\"A\" in \"Hi Ho Hi Ho\" appears "+freq+" times. ");
+		if(0 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+	}
+	catch(Exception e) {
+	    System.out.println("Exception occurred: STOP");
+	}
+
+	try {//配列の外にアクセスするであろう例
+	    FrequencerInterface  myObject;
+	    int freq;
+	    System.out.println("checking s4.B193325.Frequencer about array test");
+	    myObject = new s4.B193325.Frequencer();
+	    myObject.setSpace("AAAA".getBytes());
+	    myObject.setTarget("AA".getBytes());
+	    freq = myObject.frequency();
+	    System.out.print("\"AA\" in \"AAAA\" appears "+freq+" times. ");
+		if(3 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
 	}
 	catch(Exception e) {
 	    System.out.println("Exception occurred: STOP");

@@ -64,6 +64,7 @@ public class InformationEstimator implements InformationEstimatorInterface{
 //最初と最後はT
 	    // Compute Information Quantity for the partition, in "value1"
 	    // value1 = IQ(#"ab")+IQ(#"cde")+IQ(#"fg") for the above example
+      double value1=0;
 	    int end = 0;;
 	    int start = end;
 	    while(start<myTarget.length) {

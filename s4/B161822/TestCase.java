@@ -34,13 +34,38 @@ public class TestCase {
 	try {
 	    FrequencerInterface  myObject;
 	    int freq;
+        int sub;
 	    System.out.println("checking s4.B161822.Frequencer");
 	    myObject = new s4.B161822.Frequencer();
-	    myObject.setSpace("Hi Ho Hi Ho".getBytes());
+        freq = myObject.frequency();
+        System.out.println("Target is not set "+freq);
+        if (-1 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+        myObject.setTarget("".getBytes());
+        freq = myObject.frequency();
+        System.out.println("Target's length is zero "+freq);
+        if (-1 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
 	    myObject.setTarget("H".getBytes());
+        freq = myObject.frequency();
+        System.out.println("Target sets \"H\" Space is not set "+freq);
+        if (0 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+        myObject.setSpace("".getBytes());
 	    freq = myObject.frequency();
+        System.out.println("Target sets \"H\" Space's length is zero "+freq);
+        if (0 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+        myObject.setSpace("H".getBytes());
+        myObject.setTarget("Ho".getBytes());
+        freq = myObject.frequency();
+        System.out.print("\"Ho\" in \"H\" appears "+freq+" times. ");
+        if (0 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+        myObject.setSpace("Hi Ho Hi Ho".getBytes());
+        myObject.setTarget("H".getBytes());
+        freq = myObject.frequency();
 	    System.out.print("\"H\" in \"Hi Ho Hi Ho\" appears "+freq+" times. ");
 	    if(4 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+        sub = myObject.subByteFrequency(0,1);
+        System.out.println("subByteFrequency start>0, end>1 "+sub);
+        sub = myObject.subByteFrequency(0,0);
+        System.out.println("subByteFrequency start>0, end>0 "+sub);
 	}
 	catch(Exception e) {
 	    System.out.println("Exception occurred: STOP");

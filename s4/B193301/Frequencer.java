@@ -28,6 +28,7 @@ public class Frequencer implements FrequencerInterface{
 	for(int start = 0; start<spaceLength; start++) { // Is it OK?
 	    boolean abort = false;
 	    for(int i = 0; i<targetLength; i++) {
+		//対象文字列がどこで途切れているかわからない時正しい値を返せない
 		if(myTarget[i] != mySpace[start+i]) { abort = true; break; }
 	    }
 	    if(abort == false) { count++; }

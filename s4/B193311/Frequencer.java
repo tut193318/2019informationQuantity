@@ -57,5 +57,11 @@ public class Frequencer implements FrequencerInterface{
 	    System.out.println("Exception occurred: STOP");
 	}
     }
-}	    
-	    
+}	   
+
+/*
+I noticed issues of this program.
+(1) "myTarget" and "mySpace" are not initialized.
+(2) If we give a TARGET that is longer than SPACE, this program don't return a correct frequency.
+(3) "subByteFrequency" is not implemented.
+*/

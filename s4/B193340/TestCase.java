@@ -41,6 +41,49 @@ public class TestCase {
 	    freq = myObject.frequency();
 	    System.out.print("\"H\" in \"Hi Ho Hi Ho\" appears "+freq+" times. ");
 	    if(4 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+        
+        //追加したソース1（ブラックボックス）指定したものの頻度を返す
+        myObject.setSpace("Light Labor Lucky Lance".getBytes());
+        myObject.setTarget("L".getBytes());
+        freq = myObject.frequency();
+        System.out.print("\"L\" in \"Light Labor Lucky Lance\" appears "+freq+" times. ");
+        if(4 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+        
+        //追加したソース2（ブラックボックス）Targetの長さゼロ
+        myObject.setSpace("Light Labor Lucky Lance".getBytes());
+        myObject.setTarget("".getBytes());
+        freq = myObject.frequency();
+        System.out.print("\"\" in \"Light Labor Lucky Lance\" appears "+freq+" times. ");
+        if(-1 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+        
+        //追加したソース3（ブラックボックス）Target未設定
+        myObject.setSpace("Light Labor Lucky Lance".getBytes());
+        //myObject.setTarget("".getBytes());
+        freq = myObject.frequency();
+        System.out.print("\"\" in \"Light Labor Lucky Lance\" appears "+freq+" times. ");
+        if(-1 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+        
+        //追加したソース4（ブラックボックス）Spaceの長さゼロ
+        myObject.setSpace("".getBytes());
+        myObject.setTarget("L".getBytes());
+        freq = myObject.frequency();
+        System.out.print("\"L\" in \"\" appears "+freq+" times. ");
+        if(0 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+
+        //追加したソース5（ブラックボックス）Space未設定
+        //myObject.setSpace("".getBytes());
+        myObject.setTarget("L".getBytes());
+        freq = myObject.frequency();
+        System.out.print("\"L\" in \"\" appears "+freq+" times. ");
+        if(0 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+
+        
+        
+        //問題点
+        /*
+         wrongの時の返り値が設定されていないため-1が返されないためその改善が必要
+         */
+        
 	}
 	catch(Exception e) {
 	    System.out.println("Exception occurred: STOP");

@@ -41,6 +41,69 @@ public class TestCase {
 	    freq = myObject.frequency();
 	    System.out.print("\"H\" in \"Hi Ho Hi Ho\" appears "+freq+" times. ");
 	    if(4 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+	    
+	}
+	catch(Exception e) {
+	    System.out.println("Exception occurred: STOP");
+	}
+
+	//not set target
+	try {
+	    FrequencerInterface  myObject2;
+	    int freq;
+	    myObject2 = new s4.B193363.Frequencer();
+	    myObject2.setSpace("Hi Ho Hi Ho".getBytes());
+	    freq = myObject2.frequency();
+	    System.out.print("null in \"Hi Ho Hi Ho\" appears "+freq+" times. ");
+	    if(-1 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+	    
+	}
+	catch(Exception e) {
+	    System.out.println("Exception occurred: STOP");
+	}
+
+	//0 length set target
+	try {
+	    FrequencerInterface  myObject3;
+	    int freq;
+	    myObject3 = new s4.B193363.Frequencer();
+	    myObject3.setSpace("Hi Ho Hi Ho".getBytes());
+	    myObject3.setTarget("".getBytes());
+	    freq = myObject3.frequency();
+	    System.out.print("\"\" in \"Hi Ho Hi Ho\" appears "+freq+" times. ");
+	    if(-1 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+	    
+	}
+	catch(Exception e) {
+	    System.out.println("Exception occurred: STOP");
+	}
+
+	//not set space
+	try {
+	    FrequencerInterface  myObject4;
+	    int freq;
+	    myObject4 = new s4.B193363.Frequencer();
+	    myObject4.setTarget("H".getBytes());
+	    freq = myObject4.frequency();
+	    System.out.print("\"H\" in null appears "+freq+" times. ");
+	    if(0 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+	    
+	}
+	catch(Exception e) {
+	    System.out.println("Exception occurred: STOP");
+	}
+
+	//0 length set space
+	try {
+	    FrequencerInterface  myObject5;
+	    int freq;
+	    myObject5 = new s4.B193363.Frequencer();
+	    myObject5.setSpace("".getBytes());
+	    myObject5.setTarget("H".getBytes());
+	    freq = myObject5.frequency();
+	    System.out.print("\"H\" in \"\" appears "+freq+" times. ");
+	    if(0 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+	    
 	}
 	catch(Exception e) {
 	    System.out.println("Exception occurred: STOP");
@@ -64,9 +127,61 @@ public class TestCase {
 	    myObject.setTarget("00".getBytes());
 	    value = myObject.estimation();
 	    System.out.println(">00 "+value);
-	    myObject.setTarget("3210321001230123".getBytes());
+	}
+	catch(Exception e) {
+	    System.out.println("Exception occurred: STOP");
+	}
+
+	//not set target
+	try {
+	    InformationEstimatorInterface myObject;
+	    double value;
+	    myObject = new s4.B193363.InformationEstimator();
+	    myObject.setSpace("3210321001230123".getBytes());
 	    value = myObject.estimation();
-	    System.out.println(">3210321001230123 "+value);
+	    System.out.println(">0 "+value);
+	    
+	}
+	catch(Exception e) {
+	    System.out.println("Exception occurred: STOP");
+	}
+
+	//0 length set target
+        try {
+	    InformationEstimatorInterface myObject;
+	    double value;
+	    myObject = new s4.B193363.InformationEstimator();
+	    myObject.setSpace("3210321001230123".getBytes());
+	    myObject.setTarget("".getBytes());
+	    value = myObject.estimation();
+	    System.out.println(">0 "+value);	    
+	}
+	catch(Exception e) {
+	    System.out.println("Exception occurred: STOP");
+	}
+
+	//not set space
+        try {
+	    InformationEstimatorInterface myObject;
+	    double value;
+	    myObject = new s4.B193363.InformationEstimator();
+	    myObject.setTarget("0".getBytes());
+	    value = myObject.estimation();
+	    System.out.println(">0 "+value);	    
+	}
+	catch(Exception e) {
+	    System.out.println("Exception occurred: STOP");
+	}
+
+	//0 length set space
+        try {
+	    InformationEstimatorInterface myObject;
+	    double value;
+	    myObject = new s4.B193363.InformationEstimator();
+	    myObject.setSpace("".getBytes());
+	    myObject.setTarget("0".getBytes());
+	    value = myObject.estimation();
+	    System.out.println(">0 "+value);	    
 	}
 	catch(Exception e) {
 	    System.out.println("Exception occurred: STOP");

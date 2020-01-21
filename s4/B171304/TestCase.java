@@ -41,6 +41,28 @@ public class TestCase {
 	    freq = myObject.frequency();
 	    System.out.print("\"H\" in \"Hi Ho Hi Ho\" appears "+freq+" times. ");
 	    if(4 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+		//TestCase frequency
+		myObject.setTarget("".getBytes());
+		freq = myObject.frequency();
+		System.out.println(freq);
+		if(-1 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+		//Testcase frequency2
+		myObject.setSpace("".getBytes());
+		myObject.setTarget("H".getBytes());
+		freq  = myObject.frequency();
+		System.out.println(freq);
+		if(0 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+		//Testcase subBytefrequency
+		myObject.setSpace("Hi Ho Hi Ho".getBytes());
+		myObject.setTarget("Hi".getBytes());
+		freq = myObject.subByteFrequency(0,4);
+		if(0 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+		//Testcase frequency bug
+		myObject.setSpace("AAAA".getBytes());
+		myObject.setTarget("AA".getBytes());
+		freq = myObject.frequency();
+		System.out.println(freq);
+		if(2 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
 	}
 	catch(Exception e) {
 	    System.out.println("Exception occurred: STOP");
@@ -64,6 +86,14 @@ public class TestCase {
 	    myObject.setTarget("00".getBytes());
 	    value = myObject.estimation();
 	    System.out.println(">00 "+value);
+		//when return 0.0
+		myObject.setTarget("".getBytes());
+		value = myObject.estimation();
+		System.out.println(value);
+		//when return Double.MAX_VALUE
+		myObject.setSpace("".getBytes());
+		value = myObject.estimation();
+		System.out.println(value);
 	}
 	catch(Exception e) {
 	    System.out.println("Exception occurred: STOP");

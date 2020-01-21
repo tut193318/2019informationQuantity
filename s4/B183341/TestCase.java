@@ -37,39 +37,85 @@ public class TestCase {
 	    System.out.println("checking s4.B183341.Frequencer");
 	    myObject = new s4.B183341.Frequencer();
             
-            //SPACEを設定しない場合
+        //SPACEを設定しない場合
+        try{
+            System.out.print("SPACEを設定しない場合:");
             myObject.setTarget("H".getBytes());
-	    freq = myObject.frequency();
-	    System.out.print("SPACEを設定しない場合:");
-	    if(freq == 0) { System.out.println("OK"); } else {System.out.println("WRONG"); }
-	    
+            freq = myObject.frequency();
+            if(freq == 0) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+        }catch(Exception e) {
+            System.out.println("Exception occurred: STOP");
+        }
+
 	    //SPACEの長さがゼロの場合
-	    myObject.setSpace("".getBytes());
-	    myObject.setTarget("H".getBytes());
-	    freq = myObject.frequency();
-	    System.out.print("SPACEの長さがゼロの場合:");
-	    if(freq == 0) { System.out.println("OK"); } else {System.out.println("WRONG"); }
-	    
+        try{
+            System.out.print("SPACEの長さがゼロの場合:");
+            myObject.setSpace("".getBytes());
+            myObject.setTarget("H".getBytes());
+            freq = myObject.frequency();
+            if(freq == 0) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+        }catch(Exception e) {
+            System.out.println("Exception occurred: STOP");
+        }
+            
 	    //TARGETを設定しない場合
-	    myObject = new s4.B183341.Frequencer(); //上記のテストの際TARGETを設定しているため，newで初期化
-	    myObject.setSpace("Hi Ho Hi Ho".getBytes());
-	    freq = myObject.frequency();
-	    System.out.print("TARGETを設定しない場合:");
-	    if(freq == -1) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+        try{
+            System.out.print("TARGETを設定しない場合:");
+            myObject = new s4.B183341.Frequencer(); //上記のテストの際TARGETを設定しているため，newで初期化
+            myObject.setSpace("Hi Ho Hi Ho".getBytes());
+            freq = myObject.frequency();
+            if(freq == -1) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+        }catch(Exception e) {
+            System.out.println("Exception occurred: STOP");
+        }
 	    
 	    //TARGETの長さがゼロの場合
-	    myObject.setSpace("Hi Ho Hi Ho".getBytes());
-	    myObject.setTarget("".getBytes());
-	    freq = myObject.frequency();
-	    System.out.print("TARGETの長さがゼロの場合:");
-	    if(freq == -1) { System.out.println("OK"); } else {System.out.println("WRONG"); }
-	    
-	    //通常テストケース
+        try{
+            System.out.print("TARGETの長さがゼロの場合:");
             myObject.setSpace("Hi Ho Hi Ho".getBytes());
-	    myObject.setTarget("H".getBytes());
-	    freq = myObject.frequency();
-	    System.out.print("\"H\" in \"Hi Ho Hi Ho\" appears "+freq+" times. ");
-	    if(freq == 4) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+            myObject.setTarget("".getBytes());
+            freq = myObject.frequency();
+            if(freq == -1) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+        }catch(Exception e) {
+            System.out.println("Exception occurred: STOP");
+        }
+        
+	    //通常テストケース1
+        try{
+            System.out.print("通常テスト1:");
+            myObject.setSpace("Bo Bo Bi Be Bo".getBytes());
+            myObject.setTarget("B".getBytes());
+            freq = myObject.frequency();
+            System.out.print("\"B\" in \"Bo Bo Bi Be Bo\" appears "+freq+" times. ");
+            if(freq == 5) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+        }catch(Exception e) {
+            System.out.println("Exception occurred: STOP");
+        }
+        
+        //通常テストケース2
+        try{
+            System.out.print("通常テスト2:");
+            myObject.setSpace("   a aa  a".getBytes());
+            myObject.setTarget(" ".getBytes());
+            freq = myObject.frequency();
+            System.out.print("\" \" in \"   a aa  a\" appears "+freq+" times. ");
+            if(freq == 6) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+        }catch(Exception e) {
+            System.out.println("Exception occurred: STOP");
+        }
+        
+        //通常テストケース3
+        try{
+            System.out.print("通常テスト3:");
+            myObject.setSpace("Bsfs332fkao00aaaPPa".getBytes());
+            myObject.setTarget("a".getBytes());
+            freq = myObject.frequency();
+            System.out.print("\"a\" in \"Bsfs332fkao00aaaPPa\" appears "+freq+" times. ");
+            if(freq == 5) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+        }catch(Exception e) {
+            System.out.println("Exception occurred: STOP");
+        }
+        
 	}
 	catch(Exception e) {
 	    System.out.println("Exception occurred: STOP");
@@ -81,46 +127,65 @@ public class TestCase {
 	    System.out.println("checking s4.B183341.InformationEstimator");
 	    myObject = new s4.B183341.InformationEstimator();
 	    //SPACEを設定しない場合
+        try{
+            System.out.print("SPACEを設定しない場合:");
             myObject.setTarget("0".getBytes());
             value = myObject.estimation();
-            System.out.print("SPACEを設定しない場合:");
             if(value == Double.MAX_VALUE) { System.out.println("OK"); } else {System.out.println("WRONG"); }
-
-            //SPACEの長さがゼロの場合
+        }catch(Exception e) {
+            System.out.println("Exception occurred: STOP");
+        }
+        //SPACEの長さがゼロの場合
+        try{
+            System.out.print("SPACEの長さがゼロの場合:");
             myObject.setSpace("".getBytes());
             myObject.setTarget("0".getBytes());
             value = myObject.estimation();
-            System.out.print("SPACEの長さがゼロの場合:");
             if(value == Double.MAX_VALUE) { System.out.println("OK"); } else {System.out.println("WRONG"); }
-
-            //TARGETを設定しない場合
+        }catch(Exception e) {
+            System.out.println("Exception occurred: STOP");
+        }
+        
+        //TARGETを設定しない場合
+        try{
+            System.out.print("TARGETを設定しない場合:");
             myObject = new s4.B183341.InformationEstimator(); //上記のテストの際TARGETを設定しているため，newで初期化
             myObject.setSpace("3210321001230123".getBytes());
             value = myObject.estimation();
-            System.out.print("TARGETを設定しない場合:");
             if(value == 0.0) { System.out.println("OK"); } else {System.out.println("WRONG"); }
-
-            //TARGETの長さがゼロの場合
+        }catch(Exception e) {
+            System.out.println("Exception occurred: STOP");
+        }
+        
+        //TARGETの長さがゼロの場合
+        try{
+            System.out.print("TARGETの長さがゼロの場合:");
             myObject.setSpace("3210321001230123".getBytes());
             myObject.setTarget("".getBytes());
             value = myObject.estimation();
-            System.out.print("TARGETの長さがゼロの場合:");
             if(value == 0.0) { System.out.println("OK"); } else {System.out.println("WRONG"); }
-
-            //通常テストケース
-	    myObject.setSpace("3210321001230123".getBytes());
-	    myObject.setTarget("0".getBytes());
-	    value = myObject.estimation();
-	    System.out.println(">0 "+value);
-	    myObject.setTarget("01".getBytes());
-	    value = myObject.estimation();
-	    System.out.println(">01 "+value);
-	    myObject.setTarget("0123".getBytes());
-	    value = myObject.estimation();
-	    System.out.println(">0123 "+value);
-	    myObject.setTarget("00".getBytes());
-	    value = myObject.estimation();
-	    System.out.println(">00 "+value);
+        }catch(Exception e) {
+            System.out.println("Exception occurred: STOP");
+        }
+        
+        //通常テストケース
+        try{
+            myObject.setSpace("3210321001230123".getBytes());
+            myObject.setTarget("0".getBytes());
+            value = myObject.estimation();
+            System.out.println(">0 "+value);
+            myObject.setTarget("01".getBytes());
+            value = myObject.estimation();
+            System.out.println(">01 "+value);
+            myObject.setTarget("0123".getBytes());
+            value = myObject.estimation();
+            System.out.println(">0123 "+value);
+            myObject.setTarget("00".getBytes());
+            value = myObject.estimation();
+            System.out.println(">00 "+value);
+        }catch(Exception e) {
+            System.out.println("Exception occurred: STOP");
+        }
 	}
 	catch(Exception e) {
 	    System.out.println("Exception occurred: STOP");

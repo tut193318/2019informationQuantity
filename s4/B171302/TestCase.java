@@ -70,6 +70,66 @@ public class TestCase {
 	    System.out.println("Exception occurred: STOP");
 	}
 
+	// BlackBox Test
+	try {
+	    FrequencerInterface frequencer;
+	    System.out.println("\n-- Test s4.B171302.Frequencer (Black Box Test) --");
+		frequencer = new s4.B171302.Frequencer();
+		int result;
+
+		frequencer.setSpace("ababab".getBytes());
+	    frequencer.setTarget("a".getBytes());
+		System.out.println("Space : ababab, Target : a");
+		result = frequencer.frequency();
+		System.out.print("  Result : " + result);
+		if (result == 3) System.out.println(" > OK"); else System.out.println(" > NG");
+
+		frequencer.setSpace("".getBytes());
+	    frequencer.setTarget("a".getBytes());
+		System.out.println("Space : (Length Zero), Target : a");
+		result = frequencer.frequency();
+		System.out.print("  Result : " + result);
+		if (result == 0) System.out.println(" > OK"); else System.out.println(" > NG");
+		
+	}
+	catch(Exception e) {
+	    System.out.println("  Exception occurred: STOP");
+	}
+
+	// WhiteBox Test
+	/*
+	Problem 1
+	Even if target length is zero, frequency() does not return -1.
+
+	Problem 2
+	In specification, Frequency () returns -1 when the space or target is not set,
+	but the actual program does not check whether it is set.
+	it raised an exception.*/
+	try {
+	    FrequencerInterface frequencer;
+		System.out.println("\n-- Test s4.B171302.Frequencer (White Box Test) --");
+		int result;
+		
+		frequencer = new s4.B171302.Frequencer();
+		frequencer.setSpace("ababab".getBytes());
+	    frequencer.setTarget("".getBytes());
+		System.out.println("Space : ababab, Target : (Length Zero)");
+		result = frequencer.frequency();
+		System.out.print("  Result : " + result);
+		if (result == -1) System.out.println(" > OK"); else System.out.println(" > NG");
+
+		frequencer = new s4.B171302.Frequencer();
+		frequencer.setSpace("ababab".getBytes());
+		System.out.println("Space : ababab, Target : (Not Set)");
+		result = frequencer.frequency();
+		System.out.print("  Result : " + result);
+		if (result == -1) System.out.println(" > OK"); else System.out.println(" > NG");
+		
+	}
+	catch(Exception e) {
+	    System.out.println("  Exception occurred: STOP");
+	}
+
     }
 }	    
 	    

@@ -27,7 +27,6 @@ public interface InformationEstimatorInterface{
 }                        
 
 
-
 public class TestCase {
     public static void main(String[] args) {
 	try {
@@ -46,7 +45,7 @@ public class TestCase {
 	}
 
 	try {
-	    InformationEstimatorInterface myObject;
+	    InformationEstimator myObject;
 	    double value;
 	    System.out.println("checking s4.B171303.InformationEstimator");
 	    myObject = new s4.B171303.InformationEstimator();
@@ -63,6 +62,37 @@ public class TestCase {
 	    myObject.setTarget("00".getBytes());
 	    value = myObject.estimation();
 	    System.out.println(">00 "+value);
+	}
+	catch(Exception e) {
+	    System.out.println("Exception occurred: STOP");
+	}
+    //blackboxtest
+    try {
+	    FrequencerInterface myObject;
+    	int frequency();
+	    System.out.println("checking s4.B171303.FrequencerInterface");
+	    myObject = new s4.B171303.FrequencerInterface();
+    	if(myObject.frequency()==-1) {
+    		System.out.println("WRONG"); 
+    	}else {
+    		System.out.println("OK");
+    	}
+	}
+	catch(Exception e) {
+	    System.out.println("Exception occurred: STOP");
+	}
+    //whiteboxtest
+    try {
+	    FrequencerInterface myObject;
+    	System.out.println("checking s4.B171303.FrequencerInterface");
+	    myObject = new s4.B171303.FrequencerInterface();
+    	int start = 1;
+    	int end = 10;
+    	if(subByteFrequency(start, end)==-1) {
+    		System.out.println("WRONG"); 
+    	}else {
+    		System.out.println("OK");
+    	}
 	}
 	catch(Exception e) {
 	    System.out.println("Exception occurred: STOP");

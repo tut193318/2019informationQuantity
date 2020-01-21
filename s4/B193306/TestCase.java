@@ -13,9 +13,9 @@ interface FrequencerInterface {     // This interface provides the design for fr
     // get the frequency of subByte of taget, i.e target[start], taget[start+1], ... , target[end-1].
     // For the incorrect value of START or END, the behavior is undefined.
 }
-*/
 
-/*
+
+
 package s4.specification;
 public interface InformationEstimatorInterface{
     void setTarget(byte target[]); // set the data for computing the information quantities
@@ -41,6 +41,64 @@ public class TestCase {
 	    freq = myObject.frequency();
 	    System.out.print("\"H\" in \"Hi Ho Hi Ho\" appears "+freq+" times. ");
 	    if(4 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+
+		/* 追加したテストケース1 */
+		myObject.setSpace("".getBytes());
+	    myObject.setTarget("B".getBytes());
+	    freq = myObject.frequency();
+	    System.out.print("When length of Space is 0, result should be 0. actual:"+freq+" ");
+	    if(0 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+
+		/* 追加したテストケース2 */
+		myObject.setSpace("".getBytes());
+	    myObject.setTarget("".getBytes());
+	    freq = myObject.frequency();
+	    System.out.print("When length of Target and Space is -1, result should be -1. actual:"+freq+" ");
+	    if(-1 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+
+		/* 追加したテストケース3 */
+		myObject.setSpace("Bike Ball Boss Baby".getBytes());
+	    myObject.setTarget("".getBytes());
+	    freq = myObject.frequency();
+	    System.out.print("When length of Target is 0, result should be -1. actual:"+freq+" ");
+	    if(-1 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+
+		/* 追加したテストケース4 */
+		myObject = new s4.B193306.Frequencer();
+		freq = myObject.frequency();
+	    System.out.print("Space and Target isn't set. Result should be -1. actual:"+freq+" ");
+	    if(-1 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+
+		/* 追加したテストケース5 */
+		myObject = new s4.B193306.Frequencer();
+		myObject.setSpace("Bike Ball Boss Baby".getBytes());
+		freq = myObject.frequency();
+	    System.out.print("Target isn't set. Result should be -1. actual:"+freq+" ");
+	    if(-1 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+
+		/* 追加したテストケース6 */
+		myObject = new s4.B193306.Frequencer();
+		myObject.setTarget("B".getBytes());
+		freq = myObject.frequency();
+	    System.out.print("Space isn't set. Result should be 0. actual:"+freq+" ");
+	    if(0 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+
+		/* 追加したテストケース7 */
+		myObject = new s4.B193306.Frequencer();
+		myObject.setSpace("".getBytes());
+		freq = myObject.frequency();
+	    System.out.print("Target isn't set and length of Space is 0. Result should be -1. actual:"+freq+" ");
+	    if(-1 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+
+		/* 追加したテストケース8 */
+		myObject = new s4.B193306.Frequencer();
+		myObject.setTarget("".getBytes());
+		freq = myObject.frequency();
+	    System.out.print("Space isn't set and length of Target is 0. Result should be -1. actual:"+freq+" ");
+	    if(-1 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+
+		/* ターゲットが存在しなかったり、長さが0であるときは-1を返すようにするべきである。*/
+
 	}
 	catch(Exception e) {
 	    System.out.println("Exception occurred: STOP");
@@ -64,6 +122,9 @@ public class TestCase {
 	    myObject.setTarget("00".getBytes());
 	    value = myObject.estimation();
 	    System.out.println(">00 "+value);
+		myObject.setTarget("001".getBytes());
+	    value = myObject.estimation();
+	    System.out.println(">001 "+value);
 	}
 	catch(Exception e) {
 	    System.out.println("Exception occurred: STOP");

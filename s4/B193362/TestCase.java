@@ -77,6 +77,34 @@ public class TestCase {
 	try {
 	    FrequencerInterface  myObject;
 	    int freq;
+	    System.out.println("checking s4.B193362.Frequencer.frequency() do not throw ArrayIndexOutOfBoundsException");
+	    myObject = new s4.B193362.Frequencer();
+	    myObject.setSpace("AAAAAA".getBytes());
+	    myObject.setTarget("AA".getBytes());
+	    freq = myObject.frequency();
+      System.out.println("OK");
+	}
+	catch(Exception e) {
+      System.out.println("WRONG");
+	}
+
+	try {
+	    FrequencerInterface  myObject;
+	    int freq;
+	    System.out.println("checking s4.B193362.Frequencer.frequency() do not throw ArrayIndexOutOfBoundsException");
+	    myObject = new s4.B193362.Frequencer();
+	    myObject.setSpace("Hi Ho Hi Ho".getBytes());
+	    myObject.setTarget("H".getBytes());
+	    freq = myObject.frequency();
+	    System.out.println("OK");
+	}
+	catch(Exception e) {
+      System.out.println("WRONG");
+	}
+
+	try {
+	    FrequencerInterface  myObject;
+	    int freq;
 	    System.out.println("checking s4.B193362.Frequencer.subByteFrequency() get the frequency of subByte of taget");
 	    myObject = new s4.B193362.Frequencer();
 	    myObject.setSpace("Hi Ho Hi Ho".getBytes());
@@ -93,21 +121,27 @@ public class TestCase {
 	try {
 	    InformationEstimatorInterface myObject;
 	    double value;
+      boolean ok = true;
 	    System.out.println("checking s4.B193362.InformationEstimator.estimation() estimation of information quantity");
 	    myObject = new s4.B193362.InformationEstimator();
 	    myObject.setSpace("3210321001230123".getBytes());
 	    myObject.setTarget("0".getBytes());
 	    value = myObject.estimation();
 	    System.out.println(">0 "+value);
+      ok = ok && Double.compare(value, 2.0) == 0;
 	    myObject.setTarget("01".getBytes());
 	    value = myObject.estimation();
 	    System.out.println(">01 "+value);
+      ok = ok && Double.compare(value, 3.0) == 0;
 	    myObject.setTarget("0123".getBytes());
 	    value = myObject.estimation();
 	    System.out.println(">0123 "+value);
+      ok = ok && Double.compare(value, 3.0) == 0;
 	    myObject.setTarget("00".getBytes());
 	    value = myObject.estimation();
 	    System.out.println(">00 "+value);
+      ok = ok && Double.compare(value, 4.0) == 0;
+	    if(ok) { System.out.println("OK"); } else {System.out.println("WRONG"); }
 	}
 	catch(Exception e) {
 	    System.out.println("Exception occurred: STOP");

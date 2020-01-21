@@ -31,44 +31,94 @@ public interface InformationEstimatorInterface{
 
 public class TestCase {
     public static void main(String[] args) {
-	try {
-	    FrequencerInterface  myObject;
-	    int freq;
-	    System.out.println("checking s4.B193346.Frequencer");
-	    myObject = new s4.B193346.Frequencer();
-	    myObject.setSpace("Hi Ho Hi Ho".getBytes());
-	    myObject.setTarget("H".getBytes());
-	    freq = myObject.frequency();
-	    System.out.print("\"H\" in \"Hi Ho Hi Ho\" appears "+freq+" times. ");
-	    if(4 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
-	}
-	catch(Exception e) {
-	    System.out.println("Exception occurred: STOP");
-	}
-
-	try {
-	    InformationEstimatorInterface myObject;
-	    double value;
-	    System.out.println("checking s4.B193346.InformationEstimator");
-	    myObject = new s4.B193346.InformationEstimator();
-	    myObject.setSpace("3210321001230123".getBytes());
-	    myObject.setTarget("0".getBytes());
-	    value = myObject.estimation();
-	    System.out.println(">0 "+value);
-	    myObject.setTarget("01".getBytes());
-	    value = myObject.estimation();
-	    System.out.println(">01 "+value);
-	    myObject.setTarget("0123".getBytes());
-	    value = myObject.estimation();
-	    System.out.println(">0123 "+value);
-	    myObject.setTarget("00".getBytes());
-	    value = myObject.estimation();
-	    System.out.println(">00 "+value);
-	}
-	catch(Exception e) {
-	    System.out.println("Exception occurred: STOP");
-	}
-
+        //test the method"frequency" (as black box test)
+        try {
+            FrequencerInterface  myObject;
+            System.out.println("checking s4.B193346.Frequencer's setSpace");
+            myObject = new s4.B193346.Frequencer();
+            myObject.setSpace("Hi Ho Hi Ho".getBytes());
+        }
+        catch(Exception e) {
+            System.out.println("Exception occurred: STOP setSpace");
+        }
+        
+        try {
+            FrequencerInterface  myObject;
+            System.out.println("checking s4.B193346.Frequencer's setTarget");
+            myObject = new s4.B193346.Frequencer();
+            myObject.setTarget("Hi".getBytes());
+        }
+        catch(Exception e) {
+            System.out.println("Exception occurred: STOP setTarget");
+        }
+        
+        try {
+            FrequencerInterface  myObject;
+            System.out.println("checking s4.B193346.Frequencer's freqency");
+            myObject = new s4.B193346.Frequencer();
+            int freq;
+            myObject.setSpace("Hi Ho Hi Ho".getBytes());
+            myObject.setTarget("H".getBytes());
+            freq = myObject.frequency();
+            System.out.print("\"H\" in \"Hi Ho Hi Ho\" appears "+freq+" times. ");
+            if(4 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+        }
+        catch(Exception e) {
+            System.out.println("Exception occurred: STOP");
+        }
+        
+        try {
+            FrequencerInterface  myObject;
+            System.out.println("checking s4.B193346.Frequencer's subByteFreqency");
+            myObject = new s4.B193346.Frequencer();
+            int freq;
+            myObject.setTarget("Hi Ho".getBytes());
+            freq = myObject.frequency(0,1);
+            System.out.print("\"Hi\" in \"Hi Ho Hi Ho\" appears "+freq+" times. ");
+            if(2 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+        }
+        catch(Exception e) {
+            System.out.println("Exception occurred: STOP");
+        }
+        
+        //test the method"frequency" (as white box test)
+        try {
+            FrequencerInterface  myObject;
+            System.out.println("checking s4.B193346.Frequencer's freqency");
+            myObject = new s4.B193346.Frequencer();
+            int freq;
+            myObject.setSpace("Hi Ho Hi Ho".getBytes());
+            myObject.setTarget("Hi ".getBytes());
+            freq = myObject.frequency();
+            System.out.print("\"Hi_\" in \"Hi Ho Hi Ho\" appears "+freq+" times. ");
+            if(1 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+        }
+        catch(Exception e) {
+            System.out.println("Exception occurred: STOP");
+        }
+        
+        try {
+            InformationEstimatorInterface myObject;
+            double value;
+            System.out.println("checking s4.B193346.InformationEstimator");
+            myObject = new s4.B193346.InformationEstimator();
+            myObject.setSpace("3210321001230123".getBytes());
+            myObject.setTarget("0".getBytes());
+            value = myObject.estimation();
+            System.out.println(">0 "+value);
+            myObject.setTarget("01".getBytes());
+            value = myObject.estimation();
+            System.out.println(">01 "+value);
+            myObject.setTarget("0123".getBytes());
+            value = myObject.estimation();
+            System.out.println(">0123 "+value);
+            myObject.setTarget("00".getBytes());
+            value = myObject.estimation();
+            System.out.println(">00 "+value);
+        }
+        catch(Exception e) {
+            System.out.println("Exception occurred: STOP");
+        }
     }
 }	    
 	    

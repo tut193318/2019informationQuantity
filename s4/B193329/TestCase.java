@@ -31,6 +31,58 @@ public interface InformationEstimatorInterface{
 
 public class TestCase {
     public static void main(String[] args) {
+		//testcase setSpace
+	try {
+		FrequencerInterface myObject;
+		System.out.println("checking setSpace");
+		myObject = new s4.B193329.Frequencer();
+	    myObject.setSpace("Hi Ho Hi Ho".getBytes());
+	}
+	catch(Exception e) {
+		System.out.println("Exception occurred: STOP in setSpace");
+	}
+		//testcase setTarget
+	try{
+		FrequencerInterface myObject;
+		System.out.println("checking setTarget");
+		myObject = new s4.B193329.Frequencer();
+		myObject.setTarget("H".getBytes());
+	}
+	catch(Exception e){
+		System.out.println("Exception occurred: STOP in setTarget");
+	}
+		//testcase frequency
+	try{
+		FrequencerInterface myObject;
+		int freq;
+		System.out.println("checking frequency");
+		myObject = new s4.B193329.Frequencer();
+		myObject.setSpace("Hi Ho Hi Ho".getBytes());
+		myObject.setTarget("Hokkkkkkkkk".getBytes());//spaceのHo以降まで探索を続けようとしてエラー
+		freq = myObject.frequency();
+		System.out.println("\"Hokkkkkkkkk\" in \"Hi Ho Hi Ho\" appears "+freq+" times. ");
+	}
+	catch(Exception e){
+		System.out.println("Exception occurred: STOP in frequency");
+	}
+		//testcase subByteFrequency
+	try{
+		FrequencerInterface myObject;
+		int freq;
+		System.out.println("checking subByteFrequency");
+		myObject = new s4.B193329.Frequencer();
+		myObject.setSpace("Hi Ho Hi Ho".getBytes());
+	    myObject.setTarget("H".getBytes());
+		freq = myObject.subByteFrequency(2,8);//subByteFrequencyは未実装　エラー
+	    System.out.println("\"H\" in \"Hi Ho Hi Ho\" appears "+freq+" times. ");
+	    if(2 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+		if(freq < 0) { System.out.println("error freq isn't natural number"); }
+	}
+	catch(Exception e){
+		System.out.println("Exception occurred: STOP in subByteFrequency");
+	}
+
+
 	try {
 	    FrequencerInterface  myObject;
 	    int freq;

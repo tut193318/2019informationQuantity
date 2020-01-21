@@ -41,10 +41,6 @@ public class InformationEstimator implements InformationEstimatorInterface{
     }
 
     public double estimation(){
-		if(myTarget.length < 1){
-			return 0.0;
-		}
-
 		boolean [] partition = new boolean[myTarget.length+1];
 		int np;
 		np = 1<<(myTarget.length-1);

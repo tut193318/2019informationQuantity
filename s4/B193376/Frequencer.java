@@ -39,14 +39,17 @@ public class Frequencer implements FrequencerInterface{
     }
 
     // I know that here is a potential problem in the declaration.
-    public int subByteFrequency(int start, int length) { 
-	    subFrequency = new Frequencer();
-      subFrequency.setSpace=mySpace;
+    public int subByteFrequency(int start, int end) { 
+	    Frequencer subFrequency = new Frequencer();
+      subFrequency.setSpace(mySpace);
       int count=0;
       for(int i=start;i<end;i++){
-       subFrequency.setTarget(TARGET[i]);
-       int tmp=subFrequency.frequency();
-       if(tmp>count){count=tmp;}
+      
+        byte[] TARGET = new byte[1];
+        TARGET[0] = myTarget[i];
+        subFrequency.setTarget(TARGET);
+        int tmp=subFrequency.frequency();
+        if(tmp>count){count=tmp;}
       }
 	// Not yet, but it is not currently used by anyone.
 	return count;

@@ -1,4 +1,4 @@
-package s4.B193373; // Please modify to s4.Bnnnnnn, where nnnnnn is your student ID. 
+package s4.B193373; // Please modify to s4.Bnnnnnn, where nnnnnn is your student ID.
 import java.lang.*;
 import s4.specification.*;
 
@@ -11,6 +11,7 @@ interface FrequencerInterface {     // This interface provides the design for fr
                     //Otherwise, get the frequency of TAGET in SPACE
     int subByteFrequency(int start, int end);
     // get the frequency of subByte of taget, i.e target[start], taget[start+1], ... , target[end-1].
+    
     // For the incorrect value of START or END, the behavior is undefined.
 }
 */
@@ -33,25 +34,43 @@ public class TestCase {
     public static void main(String[] args) {
 	try {
 	    FrequencerInterface  myObject;
+        /* frequency() テストケース*/
 	    int freq;
 	    System.out.println("checking s4.B193373.Frequencer");
 	    myObject = new s4.B193373.Frequencer();
 	    myObject.setSpace("Hi Ho Hi Ho".getBytes());
-	    myObject.setTarget("H".getBytes());
+	    myObject.setTarget("Hi".getBytes());    // for文の範囲が2文字以上に対応していない
 	    freq = myObject.frequency();
 	    System.out.print("\"H\" in \"Hi Ho Hi Ho\" appears "+freq+" times. ");
-	    if(4 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+        if(2 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+
 	}
 	catch(Exception e) {
 	    System.out.println("Exception occurred: STOP");
 	}
-
+        
+    try {
+        FrequencerInterface  mysubObject;
+        /* subBytefrequency() テストケース*/
+        int subfreq;
+        System.out.println("checking s4.B193373.Frequencer");
+        mysubObject = new s4.B193373.Frequencer();
+        mysubObject.setSpace("Hi Ho Hi Ho".getBytes());
+        mysubObject.setTarget("Hi ".getBytes());
+        subfreq = mysubObject.subBytefrequency(0, 2);
+        System.out.print("\"H\" in \"Hi Ho Hi Ho\" appears "+subfreq+" times. ");
+        if(2 == subfreq) { System.out.println("OK"); } else {System.out.println("WRONG");}
+        }
+    catch(Exception e) {
+        System.out.println("Exception occurred: STOP");
+    }
+        
 	try {
 	    InformationEstimatorInterface myObject;
 	    double value;
 	    System.out.println("checking s4.B193373.InformationEstimator");
-	    myObject = new s4.B193373.InformationEstimator();
-	    myObject.setSpace("3210321001230123".getBytes());
+	    myObject = new s4.B193372.InformationEstimator();
+	    myObject.setSpace("3210321001230124".getBytes());
 	    myObject.setTarget("0".getBytes());
 	    value = myObject.estimation();
 	    System.out.println(">0 "+value);
@@ -70,5 +89,4 @@ public class TestCase {
 	}
 
     }
-}	    
-	    
+}

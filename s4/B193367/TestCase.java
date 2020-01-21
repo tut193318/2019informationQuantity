@@ -31,6 +31,42 @@ public interface InformationEstimatorInterface{
 
 public class TestCase {
     public static void main(String[] args) {
+        try {
+            FrequencerInterface  myObject;
+            int freq;
+            System.out.println("checking s4.B193367.Frequencer");
+            myObject = new s4.B193367.Frequencer();
+            myObject.setSpace("Hi Ho Hi Ho".getBytes());
+        }
+        catch(Exception e) {
+            System.out.println("Exception occurred: STOP setSpace");
+        }
+        
+        try {
+            FrequencerInterface  myObject;
+            int freq;
+            System.out.println("checking s4.B193367.Frequencer");
+            myObject = new s4.B193367.Frequencer();
+            myObject.setSpace("H".getBytes());
+        }
+        catch(Exception e) {
+            System.out.println("Exception occurred: STOP setTarget");
+        }
+        
+        try {
+            FrequencerInterface  myObject;
+            int freq;
+            System.out.println("checking s4.B193367.Frequencer");
+            myObject = new s4.B193367.Frequencer();
+            myObject.setSpace("Hi Ho Hi Ho".getBytes());
+            myObject.setTarget("Hi".getBytes());
+        }
+        catch(Exception e) {
+            System.out.println("Exception occurred: STOP Frequency");
+        }
+
+
+
 	try {
 	    FrequencerInterface  myObject;
 	    int freq;
@@ -45,6 +81,23 @@ public class TestCase {
 	catch(Exception e) {
 	    System.out.println("Exception occurred: STOP");
 	}
+        
+    try {
+        FrequencerInterface  myObject;
+        int freq;
+        System.out.println("checking s4.B193367.Frequencer subByteFrequency");
+        myObject = new s4.B193367.Frequencer();
+        myObject.setSpace("Hi Ho Hi Ho".getBytes());
+        myObject.setTarget("Hi Ho".getBytes());
+        freq = myObject.frequency();
+        int subBytefreq = myObject.subByteFrequency(0, 2);
+        System.out.print("\"Hi Ho\" in \"Hi Ho Hi Ho\" appears "+freq+" times. ");
+        if(2 == subBytefreq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+    }
+    catch(Exception e) {
+        System.out.println("Exception occurred: STOP subByteFrequency");
+    }
+
 
 	try {
 	    InformationEstimatorInterface myObject;

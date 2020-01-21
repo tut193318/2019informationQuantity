@@ -34,13 +34,63 @@ public class TestCase {
 	try {
 	    FrequencerInterface  myObject;
 	    int freq;
+	    /*ブラックボックステストここから*/
 	    System.out.println("checking s4.B193372.Frequencer");
+	    myObject = new s4.B193372.Frequencer();
+	    myObject.setSpace("Hi Ho Hi Ho".getBytes());
+	    freq = myObject.frequency();
+		if(freq == -1){
+			System.out.print("return -1");
+		}
+		
+		myObject = new s4.B193372.Frequencer();
+		myObject.setSpace("Hi Ho Hi Ho".getBytes());
+	    myObject.setTarget("".getBytes());
+	    freq = myObject.frequency();
+	    if(freq == -1){
+			System.out.print("return -1");
+		}
+		
+		myObject = new s4.B193372.Frequencer();
+		myObject.setTarget("H".getBytes());
+		freq = myObject.frequency();
+	    if(freq == 0){
+			System.out.print("return 0");
+		}
+		
+		myObject = new s4.B193372.Frequencer();
+		myObject.setTarget("H".getBytes());
+		myObject.setSpace("".getBytes());
+		freq = myObject.frequency();
+	    if(freq == 0){
+			System.out.print("return 0");
+		}
+	    
 	    myObject = new s4.B193372.Frequencer();
 	    myObject.setSpace("Hi Ho Hi Ho".getBytes());
 	    myObject.setTarget("H".getBytes());
 	    freq = myObject.frequency();
 	    System.out.print("\"H\" in \"Hi Ho Hi Ho\" appears "+freq+" times. ");
 	    if(4 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+	    /*ブラックボックステストここまで*/
+	    
+	    /*問題点
+	    	ターゲットについてのエラーやスペースについてのエラーについて
+	    	返り値を返す設定になっていない。また、その例外処理を行わなくてよい。
+	    	
+	    	
+	    　ホワイトボックステストここから
+	    　　上記の例外処理を行っていないので、スペースとターゲットを
+	    　　設定した場合のみのテストケース1つ作成した。
+	    */
+	    
+	    myObject = new s4.B193372.Frequencer();
+	    myObject.setSpace("Hi Ho Hi Ho".getBytes());
+	    myObject.setTarget("H".getBytes());
+	    freq = myObject.frequency();
+	    System.out.print("\"H\" in \"Hi Ho Hi Ho\" appears "+freq+" times. ");
+	    if(4 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+	    /*ホワイトボックステストここまで*/
 	}
 	catch(Exception e) {
 	    System.out.println("Exception occurred: STOP");
@@ -50,6 +100,26 @@ public class TestCase {
 	    InformationEstimatorInterface myObject;
 	    double value;
 	    System.out.println("checking s4.B193372.InformationEstimator");
+	    
+	    
+	    /*テストケース*/
+	    myObject = new s4.B193372.InformationEstimator();
+	    myObject.setSpace("3210321001230123".getBytes());
+	    value = myObject.estimation();
+	    if(value == 0){
+	    	System.out.print("return 0.0");
+	    }
+	    
+	    myObject = new s4.B193372.InformationEstimator();
+	    myObject.setSpace("3210321001230123".getBytes());
+	    myObject.setTarget("".getBytes());
+	    value = myObject.estimation();
+	    if(value == 0){
+	    	System.out.print("return 0.0");
+	    }
+	    /*テストケースここまで*/
+	    
+	    
 	    myObject = new s4.B193372.InformationEstimator();
 	    myObject.setSpace("3210321001230123".getBytes());
 	    myObject.setTarget("0".getBytes());

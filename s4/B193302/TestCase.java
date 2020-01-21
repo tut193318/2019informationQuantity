@@ -36,11 +36,54 @@ public class TestCase {
 	    int freq;
 	    System.out.println("checking s4.B193302.Frequencer");
 	    myObject = new s4.B193302.Frequencer();
+
+	    freq = myObject.frequency();
+	    System.out.print("\"notset\" in \"notset\" appears "+freq+" times. ");
+	    if(2 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+
+            myObject.setSpace("starhorse".getBytes());;
+	    freq = myObject.frequency();
+	    System.out.print("\"notset\" in \"starhorse\" appears "+freq+" times. ");
+	    if(2 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+
+	    myObject.setTarget("s".getBytes());
+	    freq = myObject.frequency();
+	    System.out.print("\"s\" in \"notset\" appears "+freq+" times. ");
+	    if(2 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+
 	    myObject.setSpace("Hi Ho Hi Ho".getBytes());
 	    myObject.setTarget("H".getBytes());
 	    freq = myObject.frequency();
 	    System.out.print("\"H\" in \"Hi Ho Hi Ho\" appears "+freq+" times. ");
 	    if(4 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+
+	    myObject.setSpace("starhorse".getBytes());
+	    myObject.setTarget("s".getBytes());
+	    freq = myObject.frequency();
+	    System.out.print("\"s\" in \"starhorse\" appears "+freq+" times. ");
+	    if(2 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+
+
+            myObject.setSpace("".getBytes());
+	    myObject.setTarget("s".getBytes());
+	    freq = myObject.frequency();
+	    System.out.print("\"s\" in \" \" appears "+freq+" times. ");
+	    if(2 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+
+
+            myObject.setSpace("starhorse".getBytes());
+	    myObject.setTarget("".getBytes());
+	    freq = myObject.frequency();
+	    System.out.print("\" \" in \"starhorse\" appears "+freq+" times. ");
+	    if(2 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+
+            myObject.setSpace("".getBytes());
+	    myObject.setTarget("".getBytes());
+	    freq = myObject.frequency();
+	    System.out.print("\" \" in \"\" appears "+freq+" times. ");
+	    if(2 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+
+
 	}
 	catch(Exception e) {
 	    System.out.println("Exception occurred: STOP");

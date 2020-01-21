@@ -39,6 +39,10 @@ public class TestCase {
 			myObject.setSpace("Hi Ho Hi Ho".getBytes());
 			myObject.setTarget("".getBytes());
 			freq = myObject.frequency();
+			/**
+			 * It return SPACE's length, when TARGET is not set or TARGET's length is zero.
+			 * This is incorrect value.
+			 */
 			System.out.println("It return -1, when TARGET is not set or TARGET's length is zero");
 			System.out.println("> " + (freq == -1));
 			myObject.setSpace("".getBytes());
@@ -67,6 +71,10 @@ public class TestCase {
 			myObject.setSpace("3210321001230123".getBytes());
 			myObject.setTarget("".getBytes());
 			value = myObject.estimation();
+			/**
+			 * It returns Double.MAX_VALUE when the target is not set or Target's length is
+			 * zero. This is incorrect value.
+			 */
 			System.out.println("It returns 0.0 when the TARGET is not set or TARGET's length is zero;");
 			System.out.println("> " + (value == 0.0));
 			myObject.setSpace("".getBytes());

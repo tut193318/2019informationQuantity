@@ -22,24 +22,8 @@ public class Frequencer implements FrequencerInterface{
     public void setTarget(byte [] target) { myTarget = target;}
     public void setSpace(byte []space) { mySpace = space; }
     public int frequency() {
-	int targetLength = 0;
-	int spaceLength  = 0;
-	try{
-	    targetLength = myTarget.length;
-	}catch(Exception e){
-	    return -1;
-	}
-	try{
-	    spaceLength = mySpace.length;
-        }catch(Exception e){
-	    return 0;
-	}
-	if(targetLength < 1){
-	    return -1;
-	}
-	if(spaceLength < 1){
-	    return 0;
-	}
+   	int targetLength = myTarget.length;
+	int spaceLength = mySpace.length;
 	int count = 0;
 	for(int start = 0; start<spaceLength; start++) { // Is it OK?
 	    boolean abort = false;

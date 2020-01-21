@@ -32,24 +32,171 @@ public interface InformationEstimatorInterface{
 
 public class TestCase {
     public static void main(String[] args) {
+
+	FrequencerInterface  myObject;
+	int freq;
+	/*Week1:FrequencerInterface*/
+	System.out.println("checking s4.B193317.Frequencer");
+	
+	//Week1:test Case1:Target dose not set.
+	//B:Exception occurred: STOP
+	//W:freq: -1 times.
 	try {
-	    FrequencerInterface  myObject;
-	    int freq;
-	    System.out.println("checking s4.B193317.Frequencer");
 	    myObject = new s4.B193317.Frequencer();
-	  //課題による追記：Target.length>Space.lengthの場合
-	    myObject.setSpace("A".getBytes());
-	    myObject.setTarget("ABC".getBytes());
-	    freq = myObject.frequency();
-	    System.out.print("\"ABC\" in \"A\" appears "+freq+" times. ");
-	    if(4 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+
+	    myObject.setSpace("ABCD".getBytes());
+	    freq = myObject.frequency(); //expected value:-1
+	    System.out.println("freq: "+freq+" times.");
+	    	}
+	catch(Exception e) {
+	    System.out.println("Exception occurred: STOP");
+	}
+	    
+	//Week1:test Case2:Target length is zero.
+	//B:freq: 4 times.
+	//W:freq: -1 times.
+	try{
+	    myObject = new s4.B193317.Frequencer();
+	    myObject.setSpace("ABCD".getBytes());
+	    myObject.setTarget("".getBytes());
+	    freq = myObject.frequency();//expected value:-1
+	    System.out.println("freq: "+freq+" times.");
 	}
 	catch(Exception e) {
 	    System.out.println("Exception occurred: STOP");
 	}
 
+	//Week1:test Case3:SPACE is not set
+	//B:freq: 0 times.
+	//W:freq: 0 times.
+	try{	    
+	  myObject = new s4.B193317.Frequencer();
+	  myObject.setSpace("ABCD".getBytes());
+	  myObject.setTarget("Z".getBytes());
+	  freq = myObject.frequency();//expected value:0
+	  System.out.println("freq: "+freq+" times.");
+	}
+	catch(Exception e) {
+	    System.out.println("Exception occurred: STOP");
+	}
+
+	 //Week1:test Case4:SPACE's length is zero
+	//B:freq: 0 times.
+	//W:freq: 0 times.
+	try{
+	    myObject = new s4.B193317.Frequencer();
+	    myObject.setSpace("ABCD".getBytes());
+	    myObject.setTarget("Z".getBytes());
+	    freq = myObject.frequency();//expected value:0
+	    System.out.println("freq: "+freq+" times.");
+	}
+	catch(Exception e) {
+	    System.out.println("Exception occurred: STOP");
+	}
+
+	 //Week1:test Case5: the frequency of TAGET in SPACE
+	//B:freq: 4 times.
+	//W:freq: 4 times.
+	try{
+	   myObject = new s4.B193317.Frequencer();
+	    myObject.setSpace("AAAA".getBytes());
+	    myObject.setTarget("A".getBytes());
+	    freq = myObject.frequency();//expected value:4
+	    System.out.println("freq: "+freq+" times.");
+	}
+	catch(Exception e) {
+	    System.out.println("Exception occurred: STOP");
+	}
+
+	//Week1:test Case6:either target[] or space[] is modified after setTaget, or setSpace
+	//B:Exception occurred: STOP
+	//W:freq: -1 times.
+	try{
+	   myObject = new s4.B193317.Frequencer();
+	    //myObject.myTarget = "".getBytes();// Cant compile
+	    freq = myObject.frequency();//expected value:undefind
+	    System.out.println("freq: "+freq+" times.");
+	}
+	catch(Exception e) {
+	    System.out.println("Exception occurred: STOP");
+	}
+
+	//Week1:test Case7:count of subBytes of TARGET in SPACE
+	//B:freq: -1 times.
+	//W:freq: 2 times.
+	try{
+	    myObject = new s4.B193317.Frequencer();
+	    myObject.setSpace("AABC".getBytes());
+	    myObject.setTarget("ABC".getBytes());
+	    freq = myObject.subByteFrequency(0,1);//expected value:2
+	    System.out.println("freq: "+freq+" times.");
+	}
+	catch(Exception e) {
+	    System.out.println("Exception occurred: STOP");
+	}
+
+	//Week1:test Case8:the incorrect value of START or END
+	//B:freq: -1 times.
+	//W:freq: -1 times.
+	try{
+	     myObject = new s4.B193317.Frequencer();
+	    //myObject.myTarget = "".getBytes();
+	    freq = freq = myObject.subByteFrequency(0,4);//expected value:undefind
+	    System.out.println("freq: "+freq+" times.");
+	}
+	catch(Exception e) {
+	    System.out.println("Exception occurred: STOP");
+	}
+
+	//Week1:test Case9:target[] or space[] is modified after setTaget, or setSpace,
+	//B:freq: -1 times.
+	//W:freq: -1 times.
+	try{
+	     myObject = new s4.B193317.Frequencer();
+	    //myObject.myTarget = "".getBytes();
+	    freq = myObject.frequency();//expected value:undefind
+	    System.out.println("freq: "+freq+" times.");
+	    }
+	catch(Exception e) {
+	    System.out.println("Exception occurred: STOP");
+	}
+
+	//Case10：Target.length>Space.lengthの場合
+	//B:freq: -1 times.
+	//W:"ABC" in "A" appears -1 times. 
+	try{
+	     myObject = new s4.B193317.Frequencer();
+	  
+	    myObject.setSpace("A".getBytes());
+	    myObject.setTarget("ABC".getBytes());
+	    freq = myObject.frequency();
+	    System.out.println("\"ABC\" in \"A\" appears "+freq+" times. ");
+	    if(4 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+	    
+
+	}
+	catch(Exception e) {
+	    System.out.println("Exception occurred: STOP");
+	}
+	
+
+	/*
+checking s4.B193317.Frequencer
+Exception occurred: STOP
+freq: 4 times.
+freq: 0 times.
+freq: 0 times.
+freq: 4 times.
+Exception occurred: STOP
+freq: -1 times.
+freq: -1 times.
+Exception occurred: STOP
+Exception occurred: STOP
+	 */
+
+	/*
 	try {
-	    InformationEstimatorInterface myObject;
+	    InformationEstimatorInterface myObject2;
 	    double value;
 	    System.out.println("checking s4.B193317.InformationEstimator");
 	    myObject = new s4.B193317.InformationEstimator();
@@ -74,6 +221,7 @@ public class TestCase {
 	catch(Exception e) {
 	    System.out.println("Exception occurred: STOP");
 	}
+	*/
 
     }
 }	    

@@ -18,6 +18,7 @@ interface FrequencerInterface {     // This interface provides the design for fr
 public class Frequencer implements FrequencerInterface {
 	// Code to Test, *warning: This code contains intentional problem*
 	byte[] myTarget;
+
 	byte[] mySpace;
 
 	public void setTarget(byte[] target) {
@@ -29,10 +30,13 @@ public class Frequencer implements FrequencerInterface {
 	}
 
 	public int frequency() {
+
+		// It return -1, when TARGET is not set or TARGET's length is zero
+		// it return 0, when SPACE is not set or Space's length is zero
 		if (myTarget.equals(null) || myTarget.length == 0) {
 			return -1;
 		}
-		if (myTarget.equals(null) || mySpace.length == 0) {
+		if (mySpace.equals(null) || mySpace.length == 0) {
 			return 0;
 		}
 

@@ -1,6 +1,7 @@
 package s4.B193381; // Please modify to s4.Bnnnnnn, where nnnnnn is your student ID. 
 import java.lang.*;
 import s4.specification.*;
+import java.lang.Double;
 
 /*
 interface FrequencerInterface {     // This interface provides the design for frequency counter.
@@ -107,49 +108,54 @@ public class TestCase {
 	try {
 	    InformationEstimatorInterface myObject;
 	    double value;
+      boolean ok = true;
 	    System.out.println("checking s4.B193381.InformationEstimator");
 	    myObject = new s4.B193381.InformationEstimator();
 	    myObject.setSpace("3210321001230123".getBytes());
 	    myObject.setTarget("0".getBytes());
 	    value = myObject.estimation();
-	    System.out.println(">0 "+value);
+	    System.out.print(">0 "+value + "== 2.0 ");
+      ok = ok && checkTest(value, 2.0);
 	    myObject.setTarget("01".getBytes());
 	    value = myObject.estimation();
-	    System.out.println(">01 "+value);
+	    System.out.print(">01 "+value+ "== 3.0 ");
+      ok = ok && checkTest(value, 3.0);
 	    myObject.setTarget("0123".getBytes());
 	    value = myObject.estimation();
-	    System.out.println(">0123 "+value);
+	    System.out.print(">0123 "+value+ "== 3.0 ");
+      ok = ok && checkTest(value, 3.0);
 	    myObject.setTarget("00".getBytes());
 	    value = myObject.estimation();
-	    System.out.println(">00 "+value);
+	    System.out.print(">00 "+value+ "== 4.0 ");
+      ok = ok && checkTest(value, 4.0);
+
+	    myObject.setTarget("012".getBytes());
+	    value = myObject.estimation();
+	    System.out.print(">012 "+value+ "== 3.0 ");
+      ok = ok && checkTest(value, 3.0);
+      if(ok){
+        System.out.println("TEST PASSED!!");
+      }else{
+        System.out.println("TEST FAILED!!");
+      }
+	    
 	}
 	catch(Exception e) {
 	    System.out.println("Exception occurred: STOP");
 	}
+  }
 
-	try {
-	    InformationEstimatorInterface myObject;
-	    double value;
-	    System.out.println("checking s4.B193381.InformationEstimator");
-	    myObject = new s4.B193381.InformationEstimator();
-	    myObject.setSpace("3210321001230123".getBytes());
-	    myObject.setTarget("0".getBytes());
-	    value = myObject.estimation();
-	    System.out.println(">0 "+value);
-	    myObject.setTarget("01".getBytes());
-	    value = myObject.estimation();
-	    System.out.println(">01 "+value);
-	    myObject.setTarget("0123".getBytes());
-	    value = myObject.estimation();
-	    System.out.println(">0123 "+value);
-	    myObject.setTarget("00".getBytes());
-	    value = myObject.estimation();
-	    System.out.println(">00 "+value);
-	}
-	catch(Exception e) {
-	    System.out.println("Exception occurred: STOP");
-	}
-
+  private static boolean checkTest(double value, double target){
+      boolean ok;
+      if(Double.compare(value, target) == 0){
+          System.out.println("OK");
+          ok = true;
+      }else{
+          System.out.println("WRONG");
+          ok = false;
+      }
+    return ok;
     }
+
 }	    
 	    
