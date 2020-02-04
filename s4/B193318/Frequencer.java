@@ -64,7 +64,8 @@ public class Frequencer implements FrequencerInterface{
         // if suffix_i = suffix_j, it returns 0;   
 
         // ここにコードを記述せよ
-	for(int k = 0; i+k < mySpace.length && j+k < mySpace.length; k++){
+	int k = 0;
+	while(i+k < mySpace.length && j+k < mySpace.length){
 	    if(i+k > mySpace.length){
 		return -1;
 	    }else if(j+k > mySpace.length){
@@ -76,12 +77,17 @@ public class Frequencer implements FrequencerInterface{
 	    }else if( (int)mySpace[i+k] < (int)mySpace[j+k] ){
 		return -1;
 	    }
-	}
 
-	if(mySpace.length - i < mySpace.length - j){
-	    return -1;
-	}else if(mySpace.length - i > mySpace.length - j){
-	    return 1;
+	    k = k + 1;
+
+	    if(i+k == mySpace.length && j+k < mySpace.length){
+		return 0;
+	    }else if(i+k == mySpace.length){
+		return -1;
+	    }else if(j+k == mySpace.length){
+		return 1;
+	    }
+	    
 	}
 	
 	return 0;
@@ -101,12 +107,13 @@ public class Frequencer implements FrequencerInterface{
         //                                            
         // ここに、int suffixArrayをソートするコードを書け。
         // 　順番はsuffixCompareで定義されるものとする。
+	//Collection sort使用 ArrayList経由必要あり
 	int temp = -1;
-	for(int i = 0; i<space.length; i++){
-	    for(int j = space.length-1; j>=i+1; j--){
-		if(suffixCompare(suffixArray[i],suffixArray[j]) == 1){
-		    temp = suffixArray[i];
-		    suffixArray[i] = suffixArray[j];
+	for(int i = 0; i<suffixArray.length-1; i++){
+	    for(int j = suffixArray.length-1; j>i; j--){
+		if(suffixCompare(suffixArray[j-1],suffixArray[j]) == 1){
+		    temp = suffixArray[j-1];
+		    suffixArray[j-1] = suffixArray[j];
 		    suffixArray[j] = temp;
 		}
 	    }
@@ -225,8 +232,7 @@ public class Frequencer implements FrequencerInterface{
 	    }
 	}
 	
-        //
-	return -1;
+        return -1;
         //return suffixArray.length; //このコードは変更しなければならない。          
     }
 
@@ -268,10 +274,11 @@ public class Frequencer implements FrequencerInterface{
 	    }
 	}
 	
-	
-        //
-	return -1;
-        //return suffixArray.length; // この行は変更しなければならない、       
+	if(flag == true){
+	    return suffixArray.length; // この行は変更しなければならない、
+	}else{
+	    return -1;
+        }
     }
 
 
@@ -288,7 +295,6 @@ public class Frequencer implements FrequencerInterface{
     public static void main(String[] args) {
         Frequencer frequencerObject;
         try {
-	    /*
 	    frequencerObject = new Frequencer();
             frequencerObject.setSpace("HHH".getBytes());
             frequencerObject.printSuffixArray(); // you may use this line for DEBUG
@@ -303,7 +309,6 @@ public class Frequencer implements FrequencerInterface{
             frequencerObject.printSuffixArray(); // you may use this line for DEBUG
 
 	    System.out.println("---");
-	    */
 
             frequencerObject = new Frequencer();
             frequencerObject.setSpace("Hi Ho Hi Ho".getBytes());
@@ -340,6 +345,3 @@ public class Frequencer implements FrequencerInterface{
         }
     }
 }
-
-
-	    
