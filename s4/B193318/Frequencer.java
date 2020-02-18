@@ -69,11 +69,6 @@ public class Frequencer implements FrequencerInterface{
         // ここにコードを記述せよ
 	int k = 0;
 	while(i+k < mySpace.length && j+k < mySpace.length){
-	    if(i+k > mySpace.length){
-		return -1;
-	    }else if(j+k > mySpace.length){
-		return 1;
-	    }
 
 	    if( (int)mySpace[i+k] > (int)mySpace[j+k] ){
 		return 1;
@@ -83,7 +78,7 @@ public class Frequencer implements FrequencerInterface{
 
 	    k = k + 1;
 
-	    if(i+k == mySpace.length && j+k < mySpace.length){
+	    if(i+k == mySpace.length && j+k == mySpace.length){
 		return 0;
 	    }else if(i+k == mySpace.length){
 		return -1;
@@ -91,11 +86,8 @@ public class Frequencer implements FrequencerInterface{
 		return 1;
 	    }
 	    
-	}
-	
+	}	
 	return 0;
-	
-
     }
 
     public void setSpace(byte []space) { 
@@ -124,18 +116,33 @@ public class Frequencer implements FrequencerInterface{
 	}
 	*/
 
-	ArrayList<Integer> suffixList = new ArrayList<Integer> ();
-
-	for(int i = 0; i<suffixArray.length; i++){
-	    suffixList.add(suffixArray[i]);
-	}
-
-	Collections.sort(suffixList,(i,j) -> suffixCompare(suffixArray[i],suffixArray[j]));
+	quicksort(suffixArray,0,suffixArray.length-1);
 	
-        for(int i = 0; i<suffixArray.length; i++){
-	    suffixArray[i] = suffixList.get(i);
+    }
+
+    private void quicksort(int[] array,int left , int right){
+	if(left <= right){
+	    int p =right;
+	    int l =left;
+	    int r =right;
+	    while(l <= r){
+		while(suffixCompare(suffixArray[l],suffixArray[p]) == -1){
+		    l++;
+		}
+		while(suffixCompare(suffixArray[r],suffixArray[p]) ==  1){
+		    r--;
+		}
+		if(l <= r){
+		    int tmp = array[l];
+		    array[l] = array[r];
+		    array[r] = tmp;
+		    l++;
+		    r--;
+		}
+	    }
+	    quicksort(array,left,r);
+	    quicksort(array,l,right);
 	}
-	
     }
 
     // Suffix Arrayを用いて、文字列の頻度を求めるコード
@@ -240,7 +247,7 @@ public class Frequencer implements FrequencerInterface{
         // if target_start_end is "Ho ", it will return 6.                
         //                                                                          
         // ここにコードを記述せよ。
-	
+	/*
 	for(int x = 0; x < suffixArray.length; x++){
 	    if( targetCompare(suffixArray[x], start, end) == 0 ){
 		return x;
@@ -248,7 +255,34 @@ public class Frequencer implements FrequencerInterface{
 	}
 	
         return -1;
-        //return suffixArray.length; //このコードは変更しなければならない。          
+        //return suffixArray.length; //このコードは変更しなければならない。  
+	*/
+
+	int lower =0;
+	int upper =suffixArray.length -1;
+	int pos =upper +1;
+	OUTER: while(lower<=upper){
+	    int mid =(lower + upper)/2;
+	    switch(targetCompare(suffixArray[mid],start,end)){
+	    case 0:
+		if(mid == 0){
+		    return 0;
+		}else if(targetCompare(suffixArray[mid - 1],start,end)==0){
+		    upper = mid -1;
+		}else{
+		    pos = mid;
+		    break OUTER;
+		}
+		break;
+	    case -1:
+		lower = mid + 1;
+		break;
+	    default:
+		upper = mid -1;
+		break;
+	    }
+	}
+	return pos;	
     }
 
     private int subByteEndIndex(int start, int end) {
@@ -275,7 +309,7 @@ public class Frequencer implements FrequencerInterface{
         // if target_start_end is"i", it will return 9 for "Hi Ho Hi Ho".    
         //                                                                   
         //　ここにコードを記述せよ
-	
+	/*
 	boolean flag = false;
 	
 	for(int x = 0; x < suffixArray.length; x++){
@@ -294,6 +328,38 @@ public class Frequencer implements FrequencerInterface{
 	}else{
 	    return -1;
         }
+	*/
+
+	int lower =0;
+	int upper =suffixArray.length-1;
+	int pos =upper+1;
+	OUTER: while(lower<=upper){
+	    int mid =(lower+upper)/2;
+	    switch(targetCompare(suffixArray[mid],start,end)){
+	    case 0:
+		if(mid==0){
+		    return 0;
+		}else if(mid==suffixArray.length-1){
+		    pos=mid+1;
+		    break OUTER;
+		}else if(targetCompare(suffixArray[mid+1],start,end)==0){
+		    lower = mid +1;
+		}else{
+		    pos = mid+1;
+		    break OUTER;
+		}
+		break;
+	    case -1:
+		lower = mid+1;
+		break;
+	    default:
+		upper = mid-1;
+		break;
+	    }
+	}
+    
+	return pos;
+
     }
 
 
